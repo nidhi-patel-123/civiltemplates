@@ -1,0 +1,660 @@
+  /* ------------------------------Hero section styles -------------------------------*/
+  .hero {
+  background: url('../images/hero.jpg') no-repeat center center/cover;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin-left: 150px;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-weight: bolder;
+  font-family: serif;
+  color: #000;
+  margin-bottom: 20px;
+ 
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: start;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn1,
+.btn4 {
+  font-family: serif;
+  font-weight: bolder;
+  color: #000;
+  background: transparent;
+  /* border: 2px solid #000; */
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn1:hover,
+.btn4:hover {
+  background: #ffba00;
+  color: #fff;
+  border-color: #ffba00;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-content {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-content {
+    margin-left: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+}
+/* -------------------------------------------- */
+
+
+
+
+
+ .construction-section {
+      padding: 60px 20px;
+      position: relative;
+      background: #fff;
+    }
+        .construction-img {
+      clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);
+      overflow: hidden;
+    }
+      .construction-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #000;
+    }
+
+    .section-subtitle {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ffba00;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .features-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    .features-list li {
+      margin-bottom: 10px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .features-list li::before {
+      content: "✔";
+      color: #ffba00;
+      font-weight: bold;
+    }
+
+    .know-more-btn {
+      background-color: #ffba00;
+      color: #000;
+      padding: 10px 25px;
+      border: none;
+      font-weight: 600;
+      margin-top: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .know-more-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .section-heading {
+        font-size: 1.8rem;
+      }
+    }
+    /* ----------------------------------about---------------------- */
+     .about {
+      background-color: rgb(250, 250, 250);
+      padding: 60px 0;
+    }
+
+    .about-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+
+    .about-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .about-item p {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+      text-align: left;
+    }
+
+    @media (max-width: 767.98px) {
+      .about-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-item p {
+        text-align: center;
+      }
+    }
+/* -------------------------------service----------------------------- */
+ .service-card {
+      background: #fff;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .service-card h5 {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .service-btn {
+      background-color:transparent;
+      color: #000000;
+      border: none;
+      padding: 8px 20px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .service-btn:hover {
+      background-color: #e0a800;
+      color: #fff;
+    }
+
+    @media (max-width: 767.98px) {
+      .service-card img {
+        height: 180px;
+      }
+    }
+    /* --------------------------------------------------------- */
+    .stats-section {
+      background: url('https://img.freepik.com/free-photo/image-engineering-objects-workplace-top-view-construction-concept-engineering-tools-vintage-tone-retro-filter-effect-soft-focus-selective-focus_1418-474.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740') no-repeat center center/cover;
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stats-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+.stats-box:hover .stats-icon img {
+  filter: brightness(0) invert(1); /* turns image white */
+}
+.stats-box:hover .stats-icon {
+  background-color: #222222;
+}
+    .stats-box {
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .stats-icon {
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      color: #f4a100;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin: 0 auto 20px auto;
+    }
+
+    .stats-number {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .stats-label {
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-top: 10px;
+    }
+
+    /* ----------------------------------project---------------------------------------- */
+     .project-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .project-title h2 {
+      font-weight: 700;
+    }
+
+    .project-title p {
+      color: #777;
+      max-width: 600px;
+      margin: 10px auto 0;
+    }
+
+    .project-box {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .project-box img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      /* padding: 20px; */
+      transition: all 0.4s ease;
+  
+    }
+
+    .project-box:hover img {
+      transform: scale(0.9);
+    }
+
+    .project-box:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-overlay h5 {
+      font-size: 18px;
+      color: #ffcc00;
+      margin-bottom: 5px;
+    }
+
+    .project-overlay p {
+      margin: 0;
+      font-size: 14px;
+    }
+    /* -----------------------------------blog---------------------------------- */
+    .blog-card img {
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.05);
+}
+
+.author-name {
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.date-tag {
+ clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+
+  background-color: #ffba00;
+}
+
+.read-more {
+  padding: 6px 20px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.read-more::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 20px;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+.read-more:hover::after {
+  width: 100%;
+}
+/* ----------------------------contact------------------------------------ */
+ .contact-section {
+      background: url('https://img.freepik.com/premium-photo/engineers-use-computers-check-quality-plan-construction-large-expressways_10541-4582.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740') no-repeat center center/cover;
+      position: relative;
+      padding: 60px 0;
+    }
+    .contact-box {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .contact-box h2 {
+      font-weight: 700;
+      font-size: 36px;
+    }
+    .contact-box form input,
+    .contact-box form textarea {
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .submit-btn {
+      background-color: #ffba00;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      padding: 12px 25px;
+      transition: all 0.3s ease;
+    }
+    .submit-btn:hover {
+      background-color:black;
+      color: white;
+    }
+    .info-card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      display: flex;
+      gap: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+    .info-card i {
+      font-size: 24px;
+      color: #ffba00;
+    }
+    .contact-right {
+      background: url('https://devsdesign.net/products/html/konstruk/assets/images/contact/con-right.png') no-repeat bottom right;
+      background-size: cover;
+      min-height: 100%;
+      border-top-left-radius: 80px;
+    }
+    @media(max-width: 991px) {
+      .contact-right {
+        min-height: 300px;
+        border-radius: 0;
+      }
+    }
+    /* ---------------------------last---------------------------- */
+
+.swiper-slide {
+  transition: all 0.3s ease-in-out;
+}
+.swiper-slide:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.img-thumbnail {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.grayscale {
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.grayscale:hover {
+  filter: none;
+  opacity: 1;
+}
+.section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .testimonial-box, .team-box {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 30px;
+      height: 100%;
+    }
+
+    .quote-icon {
+      color: #ffba00;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 15px;
+    }
+
+    .profile-info img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .nav-arrows {
+      display: flex;
+      gap: 0;
+    }
+
+    .nav-arrows .btn {
+      /* background-color: #ffba00; */
+      border: none;
+      border-radius: 0;
+      width: 45px;
+      height: 45px;
+      color: #000;
+    }
+
+    .thumbs img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 2px solid transparent;
+    }
+
+    .thumbs img:hover {
+      border-color: #ffba00;
+    }
+
+    .company-logos img {
+      filter: grayscale(100%);
+      max-height: 100px;
+      transition: 0.3s;
+      width: 100px;
+      object-fit: cover;
+    }
+
+    .company-logos img:hover {
+      filter: grayscale(0%);
+    }
+/* ----------------------------------------------------last----------------------- */
+.project-callout {
+  background: url('https://img.freepik.com/premium-photo/professional-engineer-architect-worker-with-protective-helmet-blueprints-paper-house-building-construction-site-background_293060-3122.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740') no-repeat center center/cover;
+  min-height: 50vh;
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+}
+
+.project-callout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.658); /* dark overlay */
+  z-index: -1;
+}
+
+.project-callout .small-text {
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 14px;
+}
+/* -------------------------footer----------------------------- */
+  .footer-section a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-section a:hover {
+  color: #ffc107;
+}
+.footer-section {
+  background: url('./images/footer.webp') no-repeat center center/cover;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section .black-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.877); /* Adjust opacity here */
+  z-index: 0;
+}
+
+.footer-section .container {
+  position: relative;
+  z-index: 2;
+}
