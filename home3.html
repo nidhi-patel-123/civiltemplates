@@ -14,12 +14,569 @@
     crossorigin="anonymous" />
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="css/navbar.css"> -->
+<link rel="stylesheet" href="css/home3.css">
+<style>
+   body {
+      margin: 0;
+  font-family: sans-serif;
+
+    }
+
+    header {
+      padding: 10px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.205);
+      background: #ffffff;
+      transition: background-color 0.3s ease;
+      box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.418);
+    }
+
+    /* Background on scroll (optional) */
+    window-scrolled header {
+      background-color: rgba(30, 31, 34, 0.9);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: 20px;
+      margin-right: 20px;
+      user-select: none;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      padding: 6px 10px;
+      display: block;
+      line-height: 1.2;
+      user-select: none;
+    }
+
+    /* Arrow for dropdown parent items */
+    .has-dropdown>a::after {
+      content: "";
+      font-size: 0.7rem;
+      margin-left: 4px;
+    }
+
+    /* Dropdown container */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffba00;
+      border-radius: 4px;
+      min-width: 160px;
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      transition: max-height 0.9s ease, padding 0.9s ease;
+      z-index: 999;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      color: #000 !important;
+    }
+
+    /* Dropdown active state */
+    .has-dropdown.active>.dropdown,
+    nav ul li:hover>.dropdown {
+      max-height: 500px;
+      /* enough to show all items */
+      padding: 10px 0;
+    }
+
+    .dropdown a {
+      padding: 8px 16px;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .dropdown a:hover {
+      background: #ffec96;
+      color: #051829 !important;
+    }
+
+.btn{
+  border: 1px solid #ffba00;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: monospace;
+cursor: pointer;
+margin: 0px 10px 0px 0px ;
+transition: 0.8s;
+position: relative;
+overflow: hidden;
+}
+.btn1{
+  color:rgb(0, 0, 0);
+
+}
+.btn1:hover{
+  color:rgb(0, 0, 0);
+
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #ffba00;
+  color: #000;
+  z-index: -1;
+  transition: 0.8s;
+}
+
+.btn1::before{
+  top: 0;
+  border-radius: 0 0 50% 50%;
+
+}
+
+.btn1:hover::before{
+height: 180%;
+}
+
+
+.btn4{
+  color: #030303;
+}
+
+.btn4:hover{
+  color: black;
+  background-color: #fff;
+}
+
+.btn4::before{
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+  height: 180%;
+}
+
+
+.btn4:hover::before{
+  height: 0%;
+}
+    /* Hamburger menu toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      color: rgb(0, 0, 0);
+      border: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 1087px) {
+      .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header {
+        background-color: #ffffff;
+        border-bottom: 1px solid white;
+        color: #000;
+
+
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .menu-toggle {
+        display: block;
+        align-self: flex-end;
+        margin-top: -36px;
+        margin-bottom: 10px;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        margin-top: 0;
+        padding-left: 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
+        border-bottom: 1px solid #444;
+      }
+
+      /* .dropdown {
+        position: relative;
+        background: #051829;
+        padding-left: 15px;
+       
+        border-radius: 0;
+        min-width: unset;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        transition: max-height 0.9s ease, padding 0.9s ease;
+        margin: 0;
+     
+      } */
+
+      .has-dropdown.active .dropdown {
+        display: flex;
+        max-height: 400px;
+        /* thoda kam kiya */
+        padding-top: 8px;
+        /* kam padding */
+        padding-bottom: 8px;
+        /* kam padding */
+        flex-direction: column;
+        margin: 0;
+        /* margin hatao */
+      }
+
+
+      /* Show dropdown when active in mobile */
+      .has-dropdown.active>.dropdown {
+        max-height: 500px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+   
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
+        border-bottom: 1px solid #444;
+        position: relative;
+        /* Add this */
+      }
+
+      .dropdown {
+        position: absolute;
+        /* Change from relative to absolute */
+        top: 100%;
+        /* Exactly parent ke niche */
+        left: 0;
+        background: #ffba00;
+        padding-left: 15px;
+        border-radius: 0;
+        min-width: 100%;
+        /* Full width of parent li */
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        transition: max-height 0.9s ease, padding 0.9s ease;
+        margin: 0;
+        color: black !important;
+        z-index: 1000;
+      }
+
+      .has-dropdown.active .dropdown {
+        display: flex;
+        max-height: 400px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        flex-direction: column;
+        margin: 0;
+      }
+      .btn{
+        display: none;
+      }
+    }
+
+
+ nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  nav ul li {
+    position: relative;
+  }
+
+  nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 8px 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+
+  /* Yellow underline on hover and active */
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #ffba00;
+    transition: width 0.3s ease;
+  }
+
+  nav ul li:hover > a::after,
+  nav ul li.active > a::after {
+    width: 100%;
+  }
+
+  nav ul li.active > a {
+    color: #ffba00;
+  }
+
+  /* Dropdown styles */
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 180px;
+    z-index: 99;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #000;
+    white-space: nowrap;
+  }
+
+  .dropdown a:hover {
+    background-color: #ffba00;
+
+  }
+
+  /* Show dropdown on hover (desktop only) */
+  @media (min-width: 1088px) {
+    .has-dropdown:hover .dropdown {
+      display: block;
+    }
+  }
+
+  /* For mobile, toggle dropdown with class 'active' */
+  @media (max-width: 1087px) {
+    .has-dropdown.active .dropdown {
+      display: block;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  @media (max-width: 1087px) {
+  #menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  #menu.active {
+    display: flex;
+  }
+}
+   /* ------------------------------Hero section styles -------------------------------*/
+  .hero {
+  background: url('../images/hero.jpg') no-repeat center center/cover;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.178);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin-left: 150px;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-weight: bolder;
+  font-family: serif;
+  color: #ffffff;
+  margin-bottom: 20px;
+ 
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: start;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn1,
+.btn4 {
+  font-family: serif;
+  font-weight: bolder;
+  color: #ffffff;
+  background: transparent;
+  /* border: 2px solid #000; */
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn1:hover,
+.btn4:hover {
+  background: #ffba00;
+  color: #fff;
+  border-color: #ffba00;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-content {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-content {
+    margin-left: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -64,7 +621,7 @@
             <a href="blog.html">BLOG</a>
             <div class="dropdown">
               <a href="blog-1.html">Blog-1</a>
-              <a href="blog-2.html">Blog-1</a>
+              <a href="blog-2.html">Blog-Details</a>
 
           </li>
 
@@ -75,14 +632,14 @@
               <a href="project-2.html">Projects-2</a>
 
           </li>
-          <li class="has-dropdown">
+             <li class="has-dropdown ">
             <a href="team.html">TEAMS</a>
             <div class="dropdown">
               <a href="team-1.html">Team-1</a>
               <a href="team-2.html">Team-2</a>
 
           </li>
-           <li class="has-dropdown">
+          <li class="has-dropdown">
             <a href="contact.html">CONTACT-US</a>
             <div class="dropdown">
               <a href="contact-1.html">Contact-us-1</a>
@@ -92,13 +649,32 @@
         </ul>
       </nav>
 
-      <a href="contact.html"><button class="btn btn1">Get In Touch →</button></a>
+      <a href="contact.html"><button class="btn btn1 text-dark">Get In Touch →</button></a>
     </div>
   </header>
 <!-- ---------------------------hero------------------------ -->
 <!-- HERO SECTION -->
+<!-- HERO SECTION -->
 <section class="hero">
+  <!-- Swiper Background -->
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./images/herooo.avif" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/heroo2.avif" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://img.freepik.com/premium-photo/engineer-technician-watching-team-worker-control-construction-workers-wearing-safety-clothing-discussing-construction-site-checking-office-laptop-construction-site_61243-547.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay -->
   <div class="hero-overlay"></div>
+
+  <!-- Content -->
   <div class="hero-content container">
     <h1>Building the future, one project at a time.</h1>
     <p>
@@ -108,15 +684,12 @@
       perspiciatis fuga ab excepturi.
     </p>
     <div class="hero-buttons">
-      <a href="project.html">
-        <button class="btn btn1">View Projects</button>
-      </a>
-      <a href="about.html">
-        <button class="btn btn4">Contact Us</button>
-      </a>
+      <a href="project.html"><button class="btn btn1">View Projects</button></a>
+      <a href="about.html"><button class="btn btn4">Contact Us</button></a>
     </div>
   </div>
 </section>
+
 
 <!-- --------------------------about--------------------------------- -->
  <section class="construction-section">
@@ -124,7 +697,7 @@
     <div class="row align-items-center g-5">
       <!-- Left Image -->
       <div class="col-lg-6 construction-img" data-aos="fade-right">
-        <img src="./images/homeabout1.png" alt="Construction Workers">
+        <img src="https://devsdesign.net/products/html/konstruk/assets/images/banner/style1/img-14.png" alt="Construction Workers">
       </div>
 
       <!-- Right Content -->
@@ -143,533 +716,471 @@
         </div>
 
        
-        <a href="about.html"> <button class="know-more-btn btn btn1" style="border-radius: 0%;">KNOW MORE</button></a>
+        <a href="about.html"> <button class="know-more-btn btn btn1" style="border-radius: 0%;color: #000;">KNOW MORE</button></a>
 
         <div class="signature">Henry James</div>
       </div>
     </div>
   </div>
 </section>
-<!-- -----------------------------------------------3 box------------------------ -->
-<section class="about">
+<!-- -----------------------------service-------------------------------------- -->
+ <!-- Services Section -->
+<section class="py-5" id="services">
   <div class="container">
-    <div class="row g-4 text-center">
-      <div class="col-md-6 col-lg-4" data-aos="fade-right">
-        <div class="about-item">
-          <img src="./images/hb1.webp" alt="Icon 1">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum hic iste placeat incidunt quasi amet! Architecto, atque!</p>
+    <p class="text-uppercase text-muted fw-semibold mb-2" data-aos="fade-up">Our Services</p>
+    <h2 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="100">
+      There are Many Types of <br />
+      Services In Construction
+    </h2>
+    <div class="underline mb-4" data-aos="fade-up" data-aos-delay="200"></div>
+
+    <div class="row g-4">
+      <!-- Item 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="d-flex align-items-start">
+           <img src="./images/h3s.png" class="icon-img me-3" alt="Sustainable Design" />
+          <div>
+            <h5 class="fw-bold">Construction Management</h5>
+            <p class="text-muted">Deliverables who's responsible for the ask for this request? but digitalize for bench mark.</p>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4" data-aos="fade-down">
-        <div class="about-item">
-          <img src="./images/hb2.webp" alt="Icon 2">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum hic iste placeat incidunt quasi amet! Architecto, atque!</p>
+      <!-- Item 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="d-flex align-items-start">
+          <img src="./images/h3s2.png" class="icon-img me-3" alt="Sustainable Design" />
+          <div>
+            <h5 class="fw-bold">Shipbuilding Contracting</h5>
+            <p class="text-muted">Diversify what do you feel you would bring to the table if you were hired for this position.</p>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4" data-aos="fade-left">
-        <div class="about-item">
-          <img src="./images/hb3.webp" alt="Icon 3">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum hic iste placeat incidunt quasi amet! Architecto, atque!</p>
+      <!-- Item 3 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="d-flex align-items-start">
+         <img src="./images/h3s3.png" class="icon-img me-3" alt="Sustainable Design" />
+          <div>
+            <h5 class="fw-bold">Virtual Design & Construction</h5>
+            <p class="text-muted">Level the playing field high touch client we need more paper out of the loop.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="d-flex align-items-start">
+          <img src="./images/h3s4.png" class="icon-img me-3" alt="Sustainable Design" />
+          <div>
+            <h5 class="fw-bold">Preconstruction Services</h5>
+            <p class="text-muted">Personal development turd polishing, so commitment to the cause draft policy proposal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="d-flex align-items-start">
+          <img src="./images/h3s5.png" class="icon-img me-3" alt="Sustainable Design" />
+          <div>
+            <h5 class="fw-bold">Management Certification</h5>
+            <p class="text-muted">We need to future-proof this where do we stand on the latest client ask productize.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="d-flex align-items-start">
+          <img src="./images/h3s6.png" class="icon-img me-3" alt="Sustainable Design" />
+          <div>
+            <h5 class="fw-bold">Sustainable Design Consulting</h5>
+            <p class="text-muted">We need to socialize the comms with the wider stakeholder community low-hanging fruit.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- ------------------------------service---------------------------------- -->
- <div class="container py-5">
+
+<!-- ------------------------------------------------------------------------------ -->
+ <!-- COUNTER SECTION -->
+<section class="counter-section py-5 text-white" style="background: url('./images/homenumber1.jpg') center center/cover no-repeat;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="counter-num">1224</h2>
+        <p class="counter-label">Cases Completed</p>
+      </div>
+      <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="counter-num">32</h2>
+        <p class="counter-label">Team Member</p>
+      </div>
+      <div class="col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
+        <h2 class="counter-num">15</h2>
+        <p class="counter-label">Years Experience</p>
+      </div>
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="counter-num">1475</h2>
+        <p class="counter-label">Satisfied Customers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ------------------------------------------------------------------------------------------ -->
+ <!-- Our Projects Section -->
+<section class="container py-5">
+  <div class="mb-4 text-center" data-aos="fade-up">
+    <div class="section-subtitle">OUR PROJECTS</div>
+    <h2 class="section-title">Doing the Right Thing, <br />at the Right Time</h2>
+    <div style="width: 60px; height: 4px; background-color: #f3af25; margin: 10px auto;"></div>
+  </div>
+
+
+
+  <!-- Project Grid -->
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-md-4" data-aos="zoom-in">
+      <div class="project-card">
+        <img src="./images/p1.jpg" alt="Project 1" />
+        <div class="overlay-content">
+          <div class="overlay-title">Box Truss Lift Complete at MCAS Miramar</div>
+          <div class="overlay-desc">Construction Management, Preconstruction Services</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+   <div class="col-md-4" data-aos="zoom-in">
+      <div class="project-card">
+        <img src="./images/p2.jpg" alt="Project 1" />
+        <div class="overlay-content">
+          <div class="overlay-title">Box Truss Lift Complete at MCAS Miramar</div>
+          <div class="overlay-desc">Construction Management, Preconstruction Services</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="col-md-4" data-aos="zoom-in">
+      <div class="project-card">
+        <img src="./images/p3.jpg" alt="Project 1" />
+        <div class="overlay-content">
+          <div class="overlay-title">Box Truss Lift Complete at MCAS Miramar</div>
+          <div class="overlay-desc">Construction Management, Preconstruction Services</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+   <div class="col-md-4" data-aos="zoom-in">
+      <div class="project-card">
+        <img src="./images/p4.jpg" alt="Project 1" />
+        <div class="overlay-content">
+          <div class="overlay-title">Box Truss Lift Complete at MCAS Miramar</div>
+          <div class="overlay-desc">Construction Management, Preconstruction Services</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+     <div class="col-md-4" data-aos="zoom-in">
+      <div class="project-card">
+        <img src="./images/p5.jpg" alt="Project 1" />
+        <div class="overlay-content">
+          <div class="overlay-title">Box Truss Lift Complete at MCAS Miramar</div>
+          <div class="overlay-desc">Construction Management, Preconstruction Services</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+     <div class="col-md-4" data-aos="zoom-in">
+      <div class="project-card">
+        <img src="./images/p6.jpg" alt="Project 1" />
+        <div class="overlay-content">
+          <div class="overlay-title">Box Truss Lift Complete at MCAS Miramar</div>
+          <div class="overlay-desc">Construction Management, Preconstruction Services</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ----------------------------------------blog=================== -->
+<section class="py-5">
+  <div class="container">
+    <div class="mb-5" data-aos="fade-up">
+      <div class="section-subtitle">Latest Blog</div>
+      <h2 class="section-title">View the Latest News<br>in Construction</h2>
+      <div class="section-title-underline"></div>
+    </div>
+
     <div class="row g-4">
-<h3 style="font-family: serif;font-weight: bolder;"> <img src="./images/topi.webp" alt=""> OUR~<span style="color: #ffba00;">SERVICE</span></h3>
       <!-- Card 1 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up">
-        <div class="card service-card">
-          <img src="https://www.kazierfan.com/themes/construcdo/constructo/img/servic-5.jpg" alt="Home Maintenance">
-          <div class="card-body text-center">
-            <h5>Home Maintenance</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-           <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="news-card">
+          <div class="news-image-wrapper">
+            <img src="./images/blog6.jpg" alt="News 1">
+            <div class="image-overlay"></div>
           </div>
+          <div class="news-meta mt-3">
+            <i class="bi bi-calendar-event"></i> June 21, 2018 &nbsp;&nbsp;
+            <i class="bi bi-person"></i> Jacob Trader
+          </div>
+          <div class="news-title">Box Truss Lift Complete at MCAS Miramar</div>
+          <p class="news-desc">Podcasting operational change management inside of workflows to establish a framework....</p>
+          <a href="blog-1.html" class="read-more">READ MORE &rarr;</a>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="card service-card">
-          <img src="https://tradezone.dexignzone.com/xhtml/images/our-work/construct/pic7.jpg" alt="Architecture">
-          <div class="card-body text-center">
-            <h5>Architecture</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-           <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="news-card">
+          <div class="news-image-wrapper">
+            <img src="./images/blog5.avif" alt="News 2">
+            <div class="image-overlay"></div>
           </div>
+          <div class="news-meta mt-3">
+            <i class="bi bi-calendar-event"></i> June 21, 2018 &nbsp;&nbsp;
+            <i class="bi bi-person"></i> Jacob Trader
+          </div>
+          <div class="news-title">Veterans in Business Network National Conference</div>
+          <p class="news-desc">Podcasting operational change management inside of workflows to establish a framework....</p>
+          <a href="blog-1.html" class="read-more">READ MORE &rarr;</a>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="card service-card">
-          <img src="https://tradezone.dexignzone.com/xhtml/images/our-work/construct/pic3.jpg" alt="Projection View">
-          <div class="card-body text-center">
-            <h5>Projection View</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-        <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up">
-        <div class="card service-card">
-          <img src="https://www.kazierfan.com/themes/construcdo/constructo/img/servic-1.jpg" alt="Construction Works">
-          <div class="card-body text-center">
-            <h5>Construction Works</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-       <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="card service-card">
-          <img src="https://unicoderbd.com/template/mechanic/templates/civil_engineer/white/images/square/7.png" alt="Workers & Stuffs">
-          <div class="card-body text-center">
-            <h5>Workers & Stuffs</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-          <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="card service-card">
-          <img src="https://unicoderbd.com/template/mechanic/templates/civil_engineer/white/images/square/4.png" alt="Interior Designs">
-          <div class="card-body text-center">
-            <h5>Interior Designs</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-        <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-<!-- ----------------------------------------------------------------------------- -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up">
-          <div class="stats-box">
-            <div class="stats-icon">
-               <img src="./images/state4.png" alt="">
-            </div>
-            <div class="stats-number">574</div>
-            <div class="stats-label">PROJECT COMPLETED</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="stats-box">
-            <div class="stats-icon">
-              <img src="./images/state3.png" alt="">
-            </div>
-            <div class="stats-number">5754</div>
-            <div class="stats-label">WORKERS & STUFFS</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="stats-box">
-            <div class="stats-icon">
-               <img src="./images/state2.png" alt="">
-            </div>
-            <div class="stats-number">78</div>
-            <div class="stats-label">DIGGING EQUIPMENTS</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="stats-box">
-            <div class="stats-icon">
-             <img src="./images/state1.png" alt="">
-            </div>
-            <div class="stats-number">13</div>
-            <div class="stats-label">AWARD WINNING PROJECTS</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- --------------------------project------------------------------ -->
- <section class="py-5">
-    <div class="container">
-      <div class="project-title" data-aos="fade-up">
-        <img src="./images/topi.webp" alt="icon" width="40">
-        <h2 class="mt-3" style="font-family: serif;">LATEST~<span style="color: #ffba00;">PROJECTS</span></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tenetur, aperiam ea eligendi consectetur et quas ipsa impedit.</p>
-      </div>
-
-      <div class="row g-3">
-        <!-- Repeat this col for each project -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up">
-          <div class="project-box">
-            <img src="./images/hp1.webp" alt="Project 1" >
-            <div class="project-overlay">
-              <h5>House Building</h5>
-              <p>Buildings, Housing</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add more images as below -->
-        <div class="col-lg-6 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp2.avif" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-
-        
-        <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp2.jpg" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-  <!-- Repeat this col for each project -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up">
-          <div class="project-box">
-            <img src="./images/hp4.jpg" alt="Project 1">
-            <div class="project-overlay">
-              <h5>House Building</h5>
-              <p>Buildings, Housing</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp5.webp" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-
-        
-        <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp8.webp" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-          <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp7.webp" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- --------------------------------------blog--------------------------------------------- -->
- <section class="blog-section py-5">
-  <div class="container text-center">
-    <img src="./images/topi.webp" alt="" style="margin-bottom: 20px;">
-    <p class="text-uppercase fw-semibold text-muted mb-1" data-aos="fade-up">News & Updates</p>
-    <h1 class="fw-bold mb-5" data-aos="fade-up" data-aos-delay="100" style="font-family: serif;">Latest From~<span style="color: #ffba00;">Our Blog</span></h1>
-    
-    <div class="row g-4">
-      <!-- Blog 1 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="blog-card">
-          <div class="position-relative">
-            <img src="./images/hblog1.jpg" alt="Blog 1" class="img-fluid w-100">
-            <div class="author-name text-white position-absolute top-0 start-0 m-2 d-flex align-items-center">
-            
-              <span class="fw-bold">Henry Hunter</span>
-            </div>
-            <div class="date-tag text-black fw-semibold position-absolute bottom-0 end-0 px-3 py-2">
-              10 AUG 2020
-            </div>
-          </div>
-          <div class="text-start mt-3 px-2">
-            <p class="text-warning fw-semibold text-uppercase small">Electricity</p>
-            <h5 class="fw-bold">Creating quality urban lifestyles, building stronger.</h5>
-           <a href="blog.html" class="btn btn1" style="border-radius: 0%;padding: 7px;padding-left: 15px;padding-right: 15px;">Read More</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog 2 -->
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="blog-card">
-          <div class="position-relative">
-            <img src="./images/hblog2.jpg" alt="Blog 2" class="img-fluid w-100">
-            <div class="author-name text-white position-absolute top-0 start-0 m-2 d-flex align-items-center">
-            
-              <span class="fw-bold">Oscar Weston</span>
-            </div>
-            <div class="date-tag bg-warning text-black fw-semibold position-absolute bottom-0 end-0 px-3 py-2">
-              10 AUG 2020
-            </div>
+        <div class="news-card">
+          <div class="news-image-wrapper">
+            <img src="./images/blog4.avif" alt="News 3">
+            <div class="image-overlay"></div>
           </div>
-          <div class="text-start mt-3 px-2">
-            <p class="text-warning fw-semibold text-uppercase small">Construction</p>
-            <h5 class="fw-bold">We’ll nail your next project, because nobody wants!</h5>
-             <a href="blog.html" class="btn btn1" style="border-radius: 0%;padding: 7px;padding-left: 15px;padding-right: 15px;">Read More</a>
+          <div class="news-meta mt-3">
+            <i class="bi bi-calendar-event"></i> June 21, 2018 &nbsp;&nbsp;
+            <i class="bi bi-person"></i> Jacob Trader
           </div>
-        </div>
-      </div>
-
-      <!-- Blog 3 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-        <div class="blog-card">
-          <div class="position-relative">
-            <img src="./images/hblog3.jpg" alt="Blog 3" class="img-fluid w-100">
-            <div class="author-name text-white position-absolute top-0 start-0 m-2 d-flex align-items-center">
-             
-              <span class="fw-bold">Rubin Santro</span>
-            </div>
-            <div class="date-tag bg-warning text-black fw-semibold position-absolute bottom-0 end-0 px-3 py-2">
-              10 AUG 2020
-            </div>
-          </div>
-          <div class="text-start mt-3 px-2">
-            <p class="text-warning fw-semibold text-uppercase small">Renovation</p>
-            <h5 class="fw-bold">Helping you and your house become better.</h5>
-            <a href="blog.html" class="btn btn1" style="border-radius: 0%;padding: 7px;padding-left: 15px;padding-right: 15px;">Read More</a>
-          </div>
+          <div class="news-title">Veterans in Business Network National Conference</div>
+          <p class="news-desc">Podcasting operational change management inside of workflows to establish a framework....</p>
+          <a href="blog-1.html" class="read-more">READ MORE &rarr;</a>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="contact-section">
+<!-- -----------------------------------------team-------------------------------------------- -->
+  <section class="team-section">
+    <div class="container">
+      <div class="team-title" data-aos="fade-up">
+        <h6>OUR EXPERTS</h6>
+        <h2>Meet The Team</h2>
+      </div>
+      <div class="row g-4">
+
+        <!-- Team Member 1 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="./images/team2.jpg" class="team-img" alt="Team Member">
+              <div class="team-info">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+              </div>
+            </div>
+            <div class="team-name">Nashid Martines</div>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="./images/team3.avif" class="team-img" alt="Team Member">
+              <div class="team-info">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+              </div>
+            </div>
+            <div class="team-name">Konne Backfield</div>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="./images/team4.avif" class="team-img" alt="Team Member">
+              <div class="team-info">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+              </div>
+            </div>
+            <div class="team-name">Hackson Willingham</div>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="./images/team6.avif" class="team-img" alt="Team Member">
+              <div class="team-info">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+              </div>
+            </div>
+            <div class="team-name">Konne Backfield</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- -----------------------------------------------logos last--------------------------------- -->
+   <!-- Company Logos Section -->
+  <section class="company-section">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <!-- Logo 1 -->
+        <div class="col-6 col-sm-4 col-md-2" data-aos="fade-up">
+          <div class="company-logo-box">
+            <img src="./images/logo1.png" alt="Logo 1">
+            <h5>COMPANY</h5>
+            <small>SLOGAN HERE</small>
+          </div>
+        </div>
+
+        <!-- Logo 2 -->
+        <div class="col-6 col-sm-4 col-md-2" data-aos="fade-up" data-aos-delay="100">
+          <div class="company-logo-box">
+            <img src="./images/logo2.png" alt="Logo 2">
+            <h5>COMPANY</h5>
+            <small>SLOGAN HERE</small>
+          </div>
+        </div>
+
+        <!-- Logo 3 -->
+        <div class="col-6 col-sm-4 col-md-2" data-aos="fade-up" data-aos-delay="200">
+          <div class="company-logo-box">
+             <img src="./images/logo3.png" alt="Logo 2">
+            <h5>COMPANY</h5>
+            <small>SLOGAN HERE</small>
+          </div>
+        </div>
+
+        <!-- Logo 4 -->
+        <div class="col-6 col-sm-4 col-md-2" data-aos="fade-up" data-aos-delay="300">
+          <div class="company-logo-box">
+            <img src="./images/logo5.png" alt="Logo 4">
+            <h5>COMPANY</h5>
+            <small>SLOGAN HERE</small>
+          </div>
+        </div>
+
+        <!-- Logo 5 -->
+        <div class="col-6 col-sm-4 col-md-2" data-aos="fade-up" data-aos-delay="400">
+          <div class="company-logo-box">
+            <img src="./images/logo2.png" alt="Logo 5">
+            <h5>COMPANY</h5>
+            <small>SLOGAN HERE</small>
+          </div>
+        </div>
+
+        <!-- Logo 6 -->
+        <div class="col-6 col-sm-4 col-md-2" data-aos="fade-up" data-aos-delay="500">
+          <div class="company-logo-box">
+            <img src="./images/logo1.png" alt="Logo 6">
+            <h5>COMPANY</h5>
+            <small>SLOGAN HERE</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- -----------------------------------------contact------------------------------------------------- -->
+ <section class="contact-section">
   <div class="container">
-    <div class="row g-0 align-items-start">
-      <!-- Left Form Column -->
-      <div class="col-lg-8">
-        <div class="contact-box" data-aos="fade-up" style="justify-content: start;">
-          <span class="text-uppercase text-warning fw-bold">LETS TALK</span>
-          <h2 class="mb-4">Have an upcoming project?</h2>
-          <form>
-            <div class="row">
-              <div class="col-md-6">
-                <input type="text" placeholder="Name">
-              </div>
-              <div class="col-md-6">
-                <input type="email" placeholder="E-Mail">
-              </div>
-              <div class="col-md-6">
-                <input type="text" placeholder="Phone Number">
-              </div>
-              <div class="col-md-6">
-                <input type="text" placeholder="Your Website">
-              </div>
-              <div class="col-12">
-                <textarea rows="4" placeholder="Your Message Here"></textarea>
-              </div>
-              <div class="col-12 mt-2">
-                <button type="submit" class="submit-btn">SUBMIT NOW</button>
-              </div>
-            </div>
-          </form>
-        </div>
+    <div class="row g-4 align-items-center">
+      
+      <!-- Map -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.836554643198!2d90.42658077530022!3d23.789132087131956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c796b1ac65ed%3A0xfa377ab21d6b6a76!2sRSTHEME!5e0!3m2!1sen!2sbd!4v1718271419331!5m2!1sen!2sbd" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
-      <!-- Right Info + Image Column -->
-      <div class="col-lg-4">
-        <div class="p-4">
-          <div class="info-card" data-aos="fade-left">
-           <img src="https://devsdesign.net/products/html/konstruk/assets/images/contact/style1/icons/1.png" alt="" style="width: 50px;height: 50px;">
-            <div>
-              <h6 class="fw-bold mb-1">USA office</h6>
-              <p class="mb-0">55 Gerad Lane,<br>NY 11201, USA</p>
+      <!-- Form -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <h5>Contact Us</h5>
+        
+        <h2 class="mb-4" style="font-family: serif;">Have an upcoming project on going?</h2>
+            <div class="underline" data-aos="fade-up" data-aos-delay="200"></div>
+        <form>
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="col-md-6">
+              <input type="email" class="form-control" placeholder="E-Mail">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Phone Number">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Your Website">
+            </div>
+            <div class="col-12">
+              <textarea rows="4" class="form-control" placeholder="Your Message Here"></textarea>
             </div>
           </div>
-          <div class="info-card" data-aos="fade-left" data-aos-delay="100">
-         <img src="https://devsdesign.net/products/html/konstruk/assets/images/contact/style1/icons/2.png" alt="" style="width: 50px;height: 50px;">
-            <div>
-              <h6 class="fw-bold mb-1">Email us</h6>
-              <p class="mb-0">test@gamil.com<br>test2@gamil.com</p>
-            </div>
-          </div>
-          <div class="info-card" data-aos="fade-left" data-aos-delay="200">
-           <img src="https://devsdesign.net/products/html/konstruk/assets/images/contact/style1/icons/3.png" alt="" style="width: 50px;height: 50px;">
-            <div>
-              <h6 class="fw-bold mb-1">Call us</h6>
-              <p class="mb-0">(+088) 589-8745<br>(+088) 222-9999</p>
-            </div>
-          </div>
-        </div>
-        <div class="contact-right d-lg-block d-none"></div>
+          <button type="submit" class="submit-btn">Submit Now</button>
+        </form>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- -----------------------------------------------last---------------------------- -->
- <!-- LAST SECTION START -->
-<section class="project-callout text-center text-white d-flex align-items-center" id="project" data-aos="zoom-in">
-  <div class="container">
-    <p class="small-text text-warning mb-2">
- <img src="./images/topi.webp" alt="" style="height: 30px;width: 30px;object-fit: cover;">  WORK WITH US !
-    </p>
-    <h2 class="display-5 fw-bold">Have any upcoming project</h2>
-    <p class="mt-3 mb-4">
-      Leverage agile frameworks to provide a robust synopsis for high level overviews.<br>
-      Iterative approaches to corporate strategy foster collaborative thinking.
-    </p>
-    <a href="contact.html" class="btn btn-warning px-4 py-2 fw-semibold text-white" style="border-radius: 0%;">GET-STARTED</a>
-  </div>
-</section>
-<!-- LAST SECTION END -->
 
 
-<!-- ------------------------------------------------------------------------------------------------------- -->
-<section class="py-5">
-  <div class="container">
-    <div class="row g-4">
-      <!-- Testimonials -->
-      <div class="col-lg-6" data-aos="fade-up">
-        <div class="section-title mb-2">
-          <i class="fas fa-ellipsis-h text-warning"></i> TESTIMONIALS
-        </div>
-        <h2 class="mb-4">Our clients reviews.</h2>
-        <div class="swiper testimonial-swiper">
-          <div class="swiper-wrapper">
-            <!-- Slide -->
-            <div class="swiper-slide testimonial-box">
-              <div class="quote-icon">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <h1>Our best number 1 testimonials</h1>
-              <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-                <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-              <div class="d-flex align-items-center mt-4 profile-info">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-                <div class="ms-3">
-                  <strong>Angel Puspa</strong><br>
-                  <small>CEO, Brick Consulting</small>
-                </div>
-              </div>
-            </div>
-          <div class="swiper-slide testimonial-box">
-              <div class="quote-icon">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-                <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-              <div class="d-flex align-items-center mt-4 profile-info">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-                <div class="ms-3">
-                  <strong>Angel Puspa</strong><br>
-                  <small>CEO, Brick Consulting</small>
-                </div>
-              </div>
-            </div><div class="swiper-slide testimonial-box">
-              <div class="quote-icon">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-                <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-              <div class="d-flex align-items-center mt-4 profile-info">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-                <div class="ms-3">
-                  <strong>Angel Puspa</strong><br>
-                  <small>CEO, Brick Consulting</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="nav-arrows mt-3">
-            <button class="btn swiper-button-prev-testi"><i class="fas fa-arrow-left"></i></button>
-            <button class="btn swiper-button-next-testi"><i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Team Members -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title mb-2">
-          <i class="fas fa-ellipsis-h text-warning"></i> TEAM MEMBERS
-        </div>
-        <h2 class="mb-4">Expert team members.</h2>
-        <div class="swiper team-swiper">
-          <div class="swiper-wrapper">
-            <!-- Slide -->
-            <div class="swiper-slide team-box text-center">
-              <img src="https://img.freepik.com/free-photo/smiling-young-male-engineer-wearing-uniform-holding-safety-helmet-looking-camera-showing-thumb-up-isolated-white-background_141793-133146.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="img-fluid rounded mb-3" alt="" style="height: 300px;width: 100%;">
-              <h6>Shahinur Islam</h6>
-              <small>Construction Worker</small>
-            </div>
-             <!-- Slide -->
-            <div class="swiper-slide team-box text-center">
-               <img src="https://img.freepik.com/free-photo/indian-man-working-male-yellow-vest-man-with-mobile-phone_1157-47551.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="img-fluid rounded mb-3" alt="" style="height: 300px;width: 100%;object-fit: cover;">
-              <h6>Shahinur Islam</h6>
-              <small>Construction Worker</small>
-            </div> <!-- Slide -->
-            <div class="swiper-slide team-box text-center">
-             <img src="https://img.freepik.com/premium-photo/young-handsome-asian-tunnel-engineering-wearing-high-visibility-jacket_36367-1151.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="img-fluid rounded mb-3" alt="" style="height: 300px;width: 100%;object-fit: cover;">
-              <h6>Shahinur Islam</h6>
-              <small>Construction Worker</small>
-            </div>
-          </div>
 
-          <!-- <div class="thumbs d-flex gap-2 mt-3">
-            <img src="https://img.freepik.com/free-photo/smiling-young-male-engineer-wearing-uniform-holding-safety-helmet-looking-camera-showing-thumb-up-isolated-white-background_141793-133146.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="">
-            <img src="https://img.freepik.com/free-photo/indian-man-working-male-yellow-vest-man-with-mobile-phone_1157-47551.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="">
-            <img src="https://img.freepik.com/premium-photo/young-handsome-asian-tunnel-engineering-wearing-high-visibility-jacket_36367-1151.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="">
-          </div> -->
 
-          <div class="nav-arrows mt-3">
-            <button class="btn swiper-button-prev-team"><i class="fas fa-arrow-left"></i></button>
-            <button class="btn swiper-button-next-team"><i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Logos -->
-    <div class="row text-center mt-5 company-logos" >
-      <div class="col-2"><img src="./images/logo1.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo2.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo3.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo4.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo5.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo1.png" class="img-fluid" alt=""></div>
-    </div>
-  </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -815,7 +1326,25 @@ dropdownToggles.forEach(toggle => {
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+  const swiper = new Swiper(".hero-swiper", {
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+<script>
+
   AOS.init();
 </script>
 </body>

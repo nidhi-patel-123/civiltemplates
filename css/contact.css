@@ -437,6 +437,17 @@ height: 180%;
       gap: 0;
     }
   }
+  @media (max-width: 1087px) {
+  #menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  #menu.active {
+    display: flex;
+  }
+}
+
     /* ------------------------------Hero section styles -------------------------------*/
   .hero {
   background: url('../images/hero.jpg') no-repeat center center/cover;

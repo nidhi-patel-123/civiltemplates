@@ -521,7 +521,7 @@
   color: #ffc107;
 }
 .footer-section {
-  background: url('./images/footer.webp') no-repeat center center/cover;
+  background: url('../images/footer.webp') no-repeat center center/cover;
   position: relative;
   z-index: 1;
 }

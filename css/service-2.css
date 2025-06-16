@@ -1,0 +1,251 @@
+  .img-box {
+      position: relative;
+      height: 300px;
+    }
+
+    .card-1,
+    .card-2 {
+      position: absolute;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .card-1 {
+      top: 40px;
+      left: 50px;
+      width: 270px;
+      z-index: 2;
+    }
+
+    .card-2 {
+      top: 0;
+      left: 120px;
+      width: 270px;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 28px;
+    }
+
+    .yellow-line {
+      width: 100px;
+      height: 4px;
+      background-color: #f1b500;
+      margin: 10px 0 20px;
+    }
+
+    .plan {
+      font-weight: 500;
+      color: #f1b500;
+      margin-right: 30px;
+    }
+
+    .plan-price {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .info-btn {
+      border: 1px solid #f1b500;
+      color: #f1b500;
+      padding: 6px 20px;
+      border-radius: 20px;
+      background: transparent;
+      transition: 0.3s;
+    }
+
+    .info-btn:hover {
+      background: #f1b500;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .img-box {
+        height: auto;
+      }
+      .card-1,
+      .card-2 {
+        position: static;
+        margin: 10px auto;
+      }
+    }
+    /* -------------------------------------------------------------- */
+        .left-box {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .left-box img {
+      width: 100%;
+      display: block;
+    }
+
+    .left-box .overlay-text {
+      position: absolute;
+      bottom: 0;
+      background: #f1b500;
+      width: 100%;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .overlay-text h5 {
+      font-weight: bold;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .overlay-text span {
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .repairing-title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .repairing-text {
+      color: #555;
+      font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .right-img {
+        margin-top: 20px;
+      }
+    }
+
+    /* ----------------------------------------------------------------- */
+    .process-section {
+  position: relative;
+  color: #fff;
+}
+
+.process-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.74);
+  z-index: 1;
+}
+
+.process-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.step-number {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.step-title {
+  color: #ffba00;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  font-size: 15px;
+  line-height: 1.7;
+}
+/* ------------------------------------------------------------------ */
+.services-section {
+  background-color: #fff;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.section-title .text-primary {
+  color: #003d7c;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.decorative-icon-top {
+  width: 40px;
+  height: 4px;
+  background-color: #ffba00;
+  margin: 0 auto;
+  position: relative;
+}
+
+.decorative-icon-top::before {
+  content: "";
+  width: 10px;
+  height: 4px;
+  position: absolute;
+  left: -12px;
+  top: 0;
+  background: #ffba00;
+}
+
+.decorative-icon-top::after {
+  content: "";
+  width: 10px;
+  height: 4px;
+  position: absolute;
+  right: -12px;
+  top: 0;
+  background: #ffba00;
+}
+
+.decorative-line {
+  width: 40px;
+  height: 4px;
+  background-color: #ffba00;
+}
+
+.service-icon i {
+  font-size: 36px;
+  color: #ffba00;
+}
+
+.service-box:hover .service-icon i {
+  color: #ff8800;
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+/* -------------------------footer----------------------------- */
+  .footer-section a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-section a:hover {
+  color: #ffc107;
+}
+.footer-section {
+  background: url('../images/footer.webp') no-repeat center center/cover;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section .black-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.877); /* Adjust opacity here */
+  z-index: 0;
+}
+
+.footer-section .container {
+  position: relative;
+  z-index: 2;
+}

@@ -1,0 +1,940 @@
+.hero {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  color: white;
+
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.315); /* adjust for readability */
+  z-index: 1;
+}
+
+
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin-left: 150px;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-weight: bolder;
+  font-family: serif;
+  color: #ffffff;
+  margin-bottom: 20px;
+ 
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: start;
+  margin-bottom: 30px;
+  color: #fffdfd;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn1,
+.btn4 {
+  font-family: serif;
+  font-weight: bolder;
+  color: #ffffff;
+  background: transparent;
+  /* border: 2px solid #000; */
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn1:hover,
+.btn4:hover {
+  background: #ffba00;
+  color: #fff;
+  border-color: #ffba00;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-content {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-content {
+    margin-left: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+}
+/* ---------------------------------------------------------------------------------------------------- */
+  .h-section {
+      background: url('../images//home1white.jpg') no-repeat left center;
+      background-size: contain;
+      padding: 80px 0;
+    }
+
+    .h-content h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+
+    .h-content p {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+  
+
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      height: 200px;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .feature-card span {
+      z-index: 1;
+    }
+
+    .feature-grid .col-md-6 {
+      margin-bottom: 20px;
+    }
+    /* ------------------------------------------------------------------- */
+     .who-we-are h2 {
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .who-we-are .left-img {
+      max-width: 100%;
+      border: 4px solid #f8f9fa;
+    }
+    .signature {
+      font-family: cursive;
+      font-size: 20px;
+      display: block;
+      margin-top: 20px;
+    }
+    .fact-box {
+      background: #f7f7f7;
+      padding: 30px;
+      height: 100%;
+    }
+    .fact-box h5 {
+      color: gray;
+      font-weight: 400;
+      font-size: 14px;
+    }
+    .fact-box h4 {
+      font-weight: 600;
+      margin: 15px 0;
+    }
+    .btn-yellow {
+      background: #f9b701;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    .tech-box {
+      background-image: url('https://img.freepik.com/premium-photo/black-white-photo-fire-truck-man-uniform-standing-front-large-truck_1198295-64066.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740'); /* Replace with actual image */
+      background-size: cover;
+      background-position: center;
+      padding: 30px;
+      color: #fff;
+      height: 100%;
+    }
+    .tech-box i {
+      font-size: 24px;
+      margin-right: 10px;
+      color: #f9b701;
+    }
+    /* ----------------------------------------------------------------------------------------------------- */
+     /* ----------------------------------about---------------------- */
+     .about {
+      background-color: rgb(250, 250, 250);
+      padding: 60px 0;
+    }
+
+    .about-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+
+    .about-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .about-item p {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+      text-align: left;
+    }
+
+    @media (max-width: 767.98px) {
+      .about-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-item p {
+        text-align: center;
+      }
+    }
+/* -------------------------------service----------------------------- */
+ .service-card {
+      background: #fff;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .service-card h5 {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .service-btn {
+      background-color:transparent;
+      color: #000000;
+      border: none;
+      padding: 8px 20px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .service-btn:hover {
+      background-color: #e0a800;
+      color: #fff;
+    }
+
+    @media (max-width: 767.98px) {
+      .service-card img {
+        height: 180px;
+      }
+    }
+
+/* ------------------------------s---------------------------------- */
+.s-section{
+  padding: 80px 0;
+  background-image: url("../images/hicons.png");
+  background-size: cover;
+  background-position: center;
+}
+.s-section h2{
+  font-weight: 700;
+  font-size: 36px;
+}
+.s-section h6{
+  color: #ffba00;
+  font-weight: 600;
+  text-transform: uppercase;
+
+}
+.s-box{
+  padding: 30px 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+.s-box img {
+  height: 50px;
+  margin-bottom: 20px;
+  transition: all 0.4s ease;
+
+    filter: grayscale(0%) brightness(1);
+}
+
+.s-box:hover img {
+  transform: scale(1.2);
+   filter: grayscale(100%) brightness(0.8);
+}
+
+    .s-box h5 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .s-box p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    .s-line{
+      width: 40px;
+      height: 4px;
+      background: #ffba00;
+      margin-top: 15px;
+    }
+
+    @media (max-width:767) {
+      .s-section h2{
+        font-size: 28px;
+      }
+    }
+    /* --------------------------------------------------------------------- */
+     
+    :root {
+      --yellow: #ffba00;
+      --dark: #03101c;
+    }
+
+    /* full‑height split layout */
+    .projects-section {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* left image  */
+    .projects-img {
+      background: url("https://img.freepik.com/free-photo/civil-engineer-construction-worker-architects-wearing-hardhats-safety-vests-are-working-together-construction-site-building-home-cooperation-teamwork-concept_640221-172.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740")
+        center/cover no-repeat;
+      min-height: 100%;
+    }
+
+    /* right content wrapper  */
+    .projects-content {
+      padding: 80px 60px;
+    }
+
+    /* yellow accent lines + label */
+    .section-label-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 25px;
+      gap: 12px;
+    }
+    .section-label-wrap::before,
+    .section-label-wrap::after {
+      content: "";
+      height: 3px;
+      background: var(--yellow);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .section-label-wrap::before {
+      width: 8px;
+    }
+    .section-label-wrap::after {
+      width: 40px;
+    }
+    .section-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* heading + copy */
+    .projects-title {
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.6rem);
+      line-height: 1.25;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+
+    .projects-lead {
+      max-width: 550px;
+      margin-bottom: 35px;
+      color: #606d7b;
+    }
+
+    /* feature list */
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 22px;
+      color: var(--dark);
+      font-weight: 500;
+    }
+    .feature-list i {
+      font-size: 1rem;
+      color: #fff;
+      background: var(--yellow);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* CTA button */
+    .projects-btn {
+      background: var(--yellow);
+      border: none;
+      padding: 14px 46px;
+      font-weight: 600;
+      color: #000;
+      transition: all 0.3s;
+    }
+    .projects-btn:hover {
+      background: #d89c00;
+      color: #000;
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 991.98px) {
+      .projects-content {
+        padding: 60px 30px;
+      }
+      .projects-img {
+        min-height: 400px;
+      }
+    }
+    /* Wrapper for image and hover overlay */
+.overlay-img-container {
+  /* position: relative; */
+  /* width: 100%; */
+  /* height: 100%; */
+ 
+}
+/* Image styling */
+.projects-img {
+  background: url("https://img.freepik.com/free-photo/civil-engineer-construction-worker-architects-wearing-hardhats-safety-vests-are-working-together-construction-site-building-home-cooperation-teamwork-concept_640221-172.jpg")
+    center/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+/* Hover zoom */
+.overlay-img-container:hover .projects-img {
+  transform: scale(1.05);
+}
+
+/* Diagonal white overlay effect */
+.overlay-hover {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* On hover: animate overlay */
+.overlay-img-container:hover .overlay-hover {
+  transform: rotate(45deg) translate(30%, 30%);
+  opacity: 1;
+}
+
+
+/* Section background image on right */
+.why-img {
+  background: url('https://img.freepik.com/free-photo/pointing-sketch_1098-14323.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740')
+    center center/cover no-repeat;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s ease;
+}
+
+.why-img::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  z-index: 1;
+  
+}
+
+.why-img:hover::before {
+  top: 100%;
+  left: 100%;
+}
+
+
+/* Label lines */
+.section-label-wrap .line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--yellow);
+  border-radius: 2px;
+}
+
+.section-label {
+  color: var(--yellow);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Progress bars */
+.progress {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.progress-bar.striped-bg {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--yellow),
+    var(--yellow) 10px,
+    #f7d35d 10px,
+    #f7d35d 20px
+  );
+  background-size: 40px 100%;
+  transition: width 1.5s ease-in-out;
+}
+
+/* Responsive image fix */
+@media (max-width: 991.98px) {
+  .why-img {
+    min-height: 300px;
+  }
+}
+/* --------------------------------------------------- */
+.counter-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  margin: 100px 0px 100px 0px;
+}
+
+.counter-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+
+.counter-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.counter-box {
+  background: transparent;
+  transition: all 0.4s ease;
+  border-radius: 10px;
+}
+
+.counter-box:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+.counter-number {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.counter-label {
+  font-size: 16px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+/* ------------------------------------------------------------------------ */
+ .testimonial-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .testimonial-section h5 {
+      color: #f5b120;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-section h2 {
+      font-weight: bold;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .underline {
+      width: 60px;
+      height: 4px;
+      background-color: #f5b120;
+      margin: 0 auto 40px;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .underline::before {
+      content: "";
+      width: 10px;
+      height: 4px;
+      background-color: #f5b120;
+      position: absolute;
+      left: -20px;
+      top: 0;
+    }
+
+    .underline::after {
+      content: "";
+      width: 10px;
+      height: 4px;
+      background-color: #f5b120;
+      position: absolute;
+      right: -20px;
+      top: 0;
+    }
+
+    .testimonial-card {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 0 0 transparent;
+}
+
+.testimonial-card:hover img {
+  transform: translateY(-10px);
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.6); /* golden glow */
+}
+
+
+    .testimonial-card p {
+      font-style: italic;
+      color: #555;
+    }
+
+    .testimonial-card h6 {
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-card span {
+      color: #666;
+      font-size: 14px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* --------------------------contact------------------------------------ */
+     .contact-section {
+      padding: 60px 0;
+      background: #fff;
+    }
+
+    .contact-section h5 {
+      color: #f4a100;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .contact-section h2 {
+      font-weight: bold;
+      font-size: 2.2rem;
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+      border: none;
+      border-radius: 0;
+      background: #f8f8f8;
+      padding: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    .contact-section .form-control:focus {
+      box-shadow: 0 0 5px rgba(255, 179, 0, 0.5);
+      border-color: #f4a100;
+    }
+
+    .contact-section .submit-btn {
+      background-color: #f4a100;
+      color: #000;
+      font-weight: 600;
+      padding: 12px 30px;
+      border: none;
+      transition: 0.3s ease;
+    }
+
+    .contact-section .submit-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      min-height: 500px;
+    }
+    /* -----------------------------------------blog--------------------------------- */
+      .news-section {
+      padding: 80px 0;
+      background: url('https://devsdesign.net/products/html/konstruk/assets/images/bg/double-sec-bg.png') no-repeat center;
+      background-size: cover;
+    }
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .section-title h5 {
+      color: #f4a100;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .section-title h2 {
+      font-weight: bold;
+    }
+
+
+    .news-card {
+      background: #fff;
+      border: none;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .news-card .card-body {
+      padding: 20px;
+    }
+
+    .news-meta {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .news-meta i {
+      color: #f4a100;
+      margin-right: 5px;
+    }
+
+    .news-card h5 {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .news-card p {
+      font-size: 15px;
+      color: #444;
+    }
+
+    .news-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 30px;
+    }
+
+    .news-dots span {
+      width: 30px;
+      height: 6px;
+      background-color: #f4a100;
+      border-radius: 3px;
+    }
+    /* ----------------------------------------------- */
+      /* --------------------------------------- */
+     .logo-section {
+      padding: 40px 0;
+      background-color: #f9f9f9;
+    }
+    .logo-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+    .logo-box img {
+      max-width: 100%;
+      height: auto;
+      max-height: 70px;
+      transition: transform 0.3s ease;
+      filter: grayscale(100%);
+    }
+    .logo-box:hover img {
+      transform: scale(1.1);
+      filter: grayscale(0%);
+    }
+
+    /* -------------------------footer----------------------------- */
+  .footer-section a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-section a:hover {
+  color: #ffc107;
+}
+.footer-section {
+  background: url('../images/footer.webp') no-repeat center center/cover;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section .black-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.877); /* Adjust opacity here */
+  z-index: 0;
+}
+
+.footer-section .container {
+  position: relative;
+  z-index: 2;
+}

@@ -18,8 +18,560 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="css/navbar.css"> -->
+<link rel="stylesheet" href="css/home1.css">
+<style>
+   body {
+      margin: 0;
+  font-family: sans-serif;
+
+    }
+
+    header {
+      padding: 10px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.205);
+      background: #ffffff;
+      transition: background-color 0.3s ease;
+      box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.418);
+    }
+
+    /* Background on scroll (optional) */
+    window-scrolled header {
+      background-color: rgba(30, 31, 34, 0.9);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      font-size: 20px;
+      margin-right: 20px;
+      user-select: none;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      padding: 6px 10px;
+      display: block;
+      line-height: 1.2;
+      user-select: none;
+    }
+
+    /* Arrow for dropdown parent items */
+    .has-dropdown>a::after {
+      content: "";
+      font-size: 0.7rem;
+      margin-left: 4px;
+    }
+
+    /* Dropdown container */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffba00;
+      border-radius: 4px;
+      min-width: 160px;
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      transition: max-height 0.9s ease, padding 0.9s ease;
+      z-index: 999;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      color: #000 !important;
+    }
+
+    /* Dropdown active state */
+    .has-dropdown.active>.dropdown,
+    nav ul li:hover>.dropdown {
+      max-height: 500px;
+      /* enough to show all items */
+      padding: 10px 0;
+    }
+
+    .dropdown a {
+      padding: 8px 16px;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .dropdown a:hover {
+      background: #ffec96;
+      color: #051829 !important;
+    }
+
+.btn{
+  border: 1px solid #ffba00;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: monospace;
+cursor: pointer;
+margin: 0px 10px 0px 0px ;
+transition: 0.8s;
+position: relative;
+overflow: hidden;
+}
+.btn1{
+  color:rgb(0, 0, 0);
+
+}
+.btn1:hover{
+  color:rgb(0, 0, 0);
+
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #ffba00;
+  color: #000;
+  z-index: -1;
+  transition: 0.8s;
+}
+
+.btn1::before{
+  top: 0;
+  border-radius: 0 0 50% 50%;
+
+}
+
+.btn1:hover::before{
+height: 180%;
+}
+
+
+.btn4{
+  color: #030303;
+}
+
+.btn4:hover{
+  color: black;
+  background-color: #fff;
+}
+
+.btn4::before{
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+  height: 180%;
+}
+
+
+.btn4:hover::before{
+  height: 0%;
+}
+    /* Hamburger menu toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      color: rgb(0, 0, 0);
+      border: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 1087px) {
+      .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header {
+        background-color: #ffffff;
+        border-bottom: 1px solid white;
+        color: #000;
+
+
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .menu-toggle {
+        display: block;
+        align-self: flex-end;
+        margin-top: -36px;
+        margin-bottom: 10px;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        margin-top: 0;
+        padding-left: 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
+        border-bottom: 1px solid #444;
+      }
+
+      /* .dropdown {
+        position: relative;
+        background: #051829;
+        padding-left: 15px;
+       
+        border-radius: 0;
+        min-width: unset;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        transition: max-height 0.9s ease, padding 0.9s ease;
+        margin: 0;
+     
+      } */
+
+      .has-dropdown.active .dropdown {
+        display: flex;
+        max-height: 400px;
+        /* thoda kam kiya */
+        padding-top: 8px;
+        /* kam padding */
+        padding-bottom: 8px;
+        /* kam padding */
+        flex-direction: column;
+        margin: 0;
+        /* margin hatao */
+      }
+
+
+      /* Show dropdown when active in mobile */
+      .has-dropdown.active>.dropdown {
+        max-height: 500px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+   
+
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
+        border-bottom: 1px solid #444;
+        position: relative;
+        /* Add this */
+      }
+
+      .dropdown {
+        position: absolute;
+        /* Change from relative to absolute */
+        top: 100%;
+        /* Exactly parent ke niche */
+        left: 0;
+        background: #ffba00;
+        padding-left: 15px;
+        border-radius: 0;
+        min-width: 100%;
+        /* Full width of parent li */
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        transition: max-height 0.9s ease, padding 0.9s ease;
+        margin: 0;
+        color: black !important;
+        z-index: 1000;
+      }
+
+      .has-dropdown.active .dropdown {
+        display: flex;
+        max-height: 400px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        flex-direction: column;
+        margin: 0;
+      }
+      .btn{
+        display: none;
+      }
+    }
+
+
+ nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  nav ul li {
+    position: relative;
+  }
+
+  nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 8px 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+
+  /* Yellow underline on hover and active */
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #ffba00;
+    transition: width 0.3s ease;
+  }
+
+  nav ul li:hover > a::after,
+  nav ul li.active > a::after {
+    width: 100%;
+  }
+
+  nav ul li.active > a {
+    color: #ffba00;
+  }
+
+  /* Dropdown styles */
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 180px;
+    z-index: 99;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #000;
+    white-space: nowrap;
+  }
+
+  .dropdown a:hover {
+    background-color: #ffba00;
+
+  }
+
+  /* Show dropdown on hover (desktop only) */
+  @media (min-width: 1088px) {
+    .has-dropdown:hover .dropdown {
+      display: block;
+    }
+  }
+
+  /* For mobile, toggle dropdown with class 'active' */
+  @media (max-width: 1087px) {
+    .has-dropdown.active .dropdown {
+      display: block;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  @media (max-width: 1087px) {
+  #menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  #menu.active {
+    display: flex;
+  }
+}
+   /* ------------------------------Hero section styles -------------------------------*/
+  .hero {
+  background: url('../images/hero.jpg') no-repeat center center/cover;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.178);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin-left: 150px;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-weight: bolder;
+  font-family: serif;
+  color: #ffffff;
+  margin-bottom: 20px;
+ 
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: start;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn1,
+.btn4 {
+  font-family: serif;
+  font-weight: bolder;
+  color: #ffffff;
+  background: transparent;
+  /* border: 2px solid #000; */
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn1:hover,
+.btn4:hover {
+  background: #ffba00;
+  color: #fff;
+  border-color: #ffba00;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-content {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-content {
+    margin-left: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -64,7 +616,7 @@
             <a href="blog.html">BLOG</a>
             <div class="dropdown">
               <a href="blog-1.html">Blog-1</a>
-              <a href="blog-2.html">Blog-1</a>
+              <a href="blog-2.html">Blog-Details</a>
 
           </li>
 
@@ -75,14 +627,14 @@
               <a href="project-2.html">Projects-2</a>
 
           </li>
-          <li class="has-dropdown">
+             <li class="has-dropdown ">
             <a href="team.html">TEAMS</a>
             <div class="dropdown">
               <a href="team-1.html">Team-1</a>
               <a href="team-2.html">Team-2</a>
 
           </li>
-           <li class="has-dropdown">
+          <li class="has-dropdown">
             <a href="contact.html">CONTACT-US</a>
             <div class="dropdown">
               <a href="contact-1.html">Contact-us-1</a>
@@ -92,15 +644,19 @@
         </ul>
       </nav>
 
-      <a href="contact.html"><button class="btn btn1">Get In Touch →</button></a>
+      <a href="contact.html"><button class="btn btn1 text-dark">Get In Touch →</button></a>
     </div>
   </header>
 <!-- ---------------------------hero------------------------ -->
 <!-- HERO SECTION -->
 <section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="./images/small.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
   <div class="hero-overlay"></div>
   <div class="hero-content container">
-    <h1>Building the future, one project at a time.</h1>
+    <h1>We Are Bulding Heritage.</h1>
     <p>
       Skilled in design, construction, and infrastructure. Delivering excellence for tomorrow's world.
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolores soluta optio. Cum perferendis
@@ -112,45 +668,122 @@
         <button class="btn btn1">View Projects</button>
       </a>
       <a href="about.html">
-        <button class="btn btn4">Contact Us</button>
+        <button class="btn btn4">About Us</button>
       </a>
     </div>
   </div>
 </section>
-
-<!-- --------------------------about--------------------------------- -->
- <section class="construction-section">
+<!-- ------------------------------------------------------------------------------------------------------------- -->
+<section class="who-we-are py-5">
   <div class="container">
-    <div class="row align-items-center g-5">
-      <!-- Left Image -->
-      <div class="col-lg-6 construction-img" data-aos="fade-right">
-        <img src="./images/homeabout1.png" alt="Construction Workers">
+    <h2 class="text-uppercase mb-4" data-aos="fade-up">Who We Are</h2>
+    <div class="row align-items-center mb-5">
+      <div class="col-md-4" data-aos="fade-right">
+        <img src="https://img.freepik.com/free-photo/construction-workers-yellow-vests-vests-raise-their-hands-air_505751-3792.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="Director" class="img-fluid left-img" />
       </div>
+      <div class="col-md-8" data-aos="fade-left">
+        <h5 class="fw-bold">TheBuilt – <span class="text-muted">A Tradition Of Excellence</span></h5>
+        <p class="text-muted">
+          We remain true to the same principles on which our company was founded over a hundred years ago: 
+          providing superior service to our clients, putting safety first, creating opportunities for our people, 
+          delivering exceptional work.
+        </p>
+        <p class="text-muted">
+          Construction is the process of constructing a building or infrastructure. Construction differs from 
+          manufacturing in that manufacturing typically involves mass production of similar items without a 
+          designated purchaser.
+        </p>
+        <span class="signature">Tomas Edinson</span>
+        <span class="text-muted">/ Creative Director</span>
+      </div>
+    </div>
 
-      <!-- Right Content -->
-      <div class="col-lg-6" data-aos="fade-left">
-        <div class="section-subtitle"> <img src="./images/topi.webp" alt="" style="width: 40px;">  WHO WE ARE</div>
-        <h2 class="section-heading mt-2 mb-3">Construction solutions<br>focused future ready</h2>
-        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy data foster to collaborative thinking to empowerment.</p>
-
-        <div class="d-flex align-items-center gap-3 mt-3">
-          <img src="./images/homeabout2.png" alt="Small Image" style="width: 130px; border-radius: 5px;">
-          <ul class="features-list">
-            <li>Pre-construction services</li>
-            <li>Industrial manufacturing</li>
-            <li>Building and construction</li>
-          </ul>
+    <div class="row g-0">
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="fact-box">
+          <h5>SOME FACTS</h5>
+          <h4>Great experiences build great brands.</h4>
+          <p class="text-muted">
+            We remain true to the same principles on which our company was founded over a hundred years ago:
+            providing superior service to our clients, putting safety first, creating opportunities for our people, 
+            delivering exceptional work.
+          </p>
+          <p class="text-muted">
+            Construction as an industry comprises six to nine percent of the gross domestic product of developed 
+            countries. In general, there are three sectors of construction.
+          </p>
+          
+          <a href="contact.html"><button class="btn btn-yellow" style="color: #000;">Contact Us</button></a>
         </div>
-
-       
-        <a href="about.html"> <button class="know-more-btn btn btn1" style="border-radius: 0%;">KNOW MORE</button></a>
-
-        <div class="signature">Henry James</div>
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="tech-box d-flex flex-column justify-content-center h-100">
+          <div class="mb-4">
+            <h5><i class="bi bi-cpu"></i>TECHNOLOGY</h5>
+            <h6 class="fw-bold">MODERN TECHNOLOGIES</h6>
+            <p>Construction is the process of constructing a building or infrastructure. Construction differs from 
+              manufacturing in that manufacturing typically involves mass production.
+            </p>
+          </div>
+          <div>
+            <h5><i class="bi bi-people-fill"></i>TEAM</h5>
+            <h6 class="fw-bold">PROFESSIONAL TEAMWORK</h6>
+            <p>Construction is the process of constructing a building or infrastructure. Construction differs from 
+              manufacturing in that manufacturing typically involves mass production.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<!-- -----------------------------------------------3 box------------------------ -->
+<!-- -------------------------------------------------------------------------------------------------------- -->
+
+<section class="h-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="h-content">
+          <h1>Welcome To <br />Koncrete Website</h1>
+          <p><strong>Simply dummy text of the printing and typesetting industry has been the industry's standard.</strong></p>
+          <p>Mimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+         
+          <a href="index.html"> <button class="btn btn4" style="color: #000;border-radius: 0%;">Read More <i class="fa-solid fa-arrow-right-long"></i></button></a>
+        </div>
+      </div>
+
+      <!-- Right Feature Cards -->
+      <div class="col-lg-6 feature-grid" data-aos="fade-left">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="feature-card" style="background-image: url('https://img.freepik.com/free-photo/construction-site-silhouettes_1127-3253.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740'); background-size: cover;">
+              <span>Building</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="feature-card" style="background-image: url('https://img.freepik.com/free-photo/beautiful-view-construction-site-city-sunset_181624-9347.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740'); background-size: cover;">
+              <span>Industrial</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="feature-card" style="background-image: url('https://img.freepik.com/free-photo/construction-works-frankfurt-downtown-germany_1268-20907.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740'); background-size: cover;">
+              <span>Road</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="feature-card" style="background-image: url('https://img.freepik.com/free-photo/construction-silhouette_1150-8336.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740'); background-size: cover;">
+              <span>Interior</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- -------------------------------------------------------------------------------- -->
+ <!-- -----------------------------------------------3 box------------------------ -->
 <section class="about">
   <div class="container">
     <div class="row g-4 text-center">
@@ -177,502 +810,503 @@
     </div>
   </div>
 </section>
+
 <!-- ------------------------------service---------------------------------- -->
  <div class="container py-5">
     <div class="row g-4">
 <h3 style="font-family: serif;font-weight: bolder;"> <img src="./images/topi.webp" alt=""> OUR~<span style="color: #ffba00;">SERVICE</span></h3>
       <!-- Card 1 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up">
         <div class="card service-card">
           <img src="https://www.kazierfan.com/themes/construcdo/constructo/img/servic-5.jpg" alt="Home Maintenance">
           <div class="card-body text-center">
             <h5>Home Maintenance</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-           <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
+   <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a> 
+           </div>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div class="card service-card">
           <img src="https://tradezone.dexignzone.com/xhtml/images/our-work/construct/pic7.jpg" alt="Architecture">
           <div class="card-body text-center">
             <h5>Architecture</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-           <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
+  <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a> 
+           </div>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
         <div class="card service-card">
           <img src="https://tradezone.dexignzone.com/xhtml/images/our-work/construct/pic3.jpg" alt="Projection View">
           <div class="card-body text-center">
             <h5>Projection View</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-        <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
+    <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a> 
+            </div>
         </div>
       </div>
 
       <!-- Card 4 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up">
         <div class="card service-card">
           <img src="https://www.kazierfan.com/themes/construcdo/constructo/img/servic-1.jpg" alt="Construction Works">
           <div class="card-body text-center">
             <h5>Construction Works</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-       <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
+    <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a>  
+         </div>
         </div>
       </div>
 
       <!-- Card 5 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div class="card service-card">
           <img src="https://unicoderbd.com/template/mechanic/templates/civil_engineer/white/images/square/7.png" alt="Workers & Stuffs">
           <div class="card-body text-center">
             <h5>Workers & Stuffs</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-          <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
-          </div>
+   <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a> 
+           </div>
         </div>
       </div>
 
       <!-- Card 6 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
         <div class="card service-card">
           <img src="https://unicoderbd.com/template/mechanic/templates/civil_engineer/white/images/square/4.png" alt="Interior Designs">
           <div class="card-body text-center">
             <h5>Interior Designs</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-        <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
+        <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a> 
           </div>
         </div>
       </div>
-
+  <!-- Card 1 -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up">
+        <div class="card service-card">
+          <img src="./images/blog4.avif" alt="Home Maintenance">
+          <div class="card-body text-center">
+            <h5>Home Maintenance</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
+ <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a> 
+          </div>
+        </div>
+      </div>  <!-- Card 1 -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up">
+        <div class="card service-card">
+          <img src="./images/service1.jpg" alt="Home Maintenance">
+          <div class="card-body text-center">
+            <h5>Home Maintenance</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
+    <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: 1px solid #ffba00;color: #000;font-size: 16px;">SERVICE DETAILS</button></a> 
+           </div>
+        </div>
+      </div>
     </div>
   </div>
-<!-- ----------------------------------------------------------------------------- -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up">
-          <div class="stats-box">
-            <div class="stats-icon">
-               <img src="./images/state4.png" alt="">
-            </div>
-            <div class="stats-number">574</div>
-            <div class="stats-label">PROJECT COMPLETED</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="stats-box">
-            <div class="stats-icon">
-              <img src="./images/state3.png" alt="">
-            </div>
-            <div class="stats-number">5754</div>
-            <div class="stats-label">WORKERS & STUFFS</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="stats-box">
-            <div class="stats-icon">
-               <img src="./images/state2.png" alt="">
-            </div>
-            <div class="stats-number">78</div>
-            <div class="stats-label">DIGGING EQUIPMENTS</div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="stats-box">
-            <div class="stats-icon">
-             <img src="./images/state1.png" alt="">
-            </div>
-            <div class="stats-number">13</div>
-            <div class="stats-label">AWARD WINNING PROJECTS</div>
-          </div>
-        </div>
+
+<!-- --------------------------------------service-------------------------------- -->
+ <section class="s-section">
+<div class="container">
+  <h6 data-aos="zoom-in-down" data-aos-duration="1500"> VALUED SERVICE</h6>
+        <div class="s-line" data-aos="zoom-in-down" data-aos-duration="1500"></div>
+  <h2 class="mb-4" data-aos="zoom-in-down" data-aos-duration="1500">Our experts offer a full range <br>contracting services</h2>
+ 
+  <div class="row mt-5">
+
+    <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-up">
+      <div class="s-box text-start">
+        <img src="./images/hi1.png" alt="">
+         <h5>General construction</h5>
+         <p>Quisque placerat vitae lacus ut scelerisque.<br> Fusce luctus odio ac nibh luctus consulting.</p>
+         <div class="s-line"></div>
       </div>
     </div>
-  </section>
-<!-- --------------------------project------------------------------ -->
- <section class="py-5">
-    <div class="container">
-      <div class="project-title" data-aos="fade-up">
-        <img src="./images/topi.webp" alt="icon" width="40">
-        <h2 class="mt-3" style="font-family: serif;">LATEST~<span style="color: #ffba00;">PROJECTS</span></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tenetur, aperiam ea eligendi consectetur et quas ipsa impedit.</p>
-      </div>
-
-      <div class="row g-3">
-        <!-- Repeat this col for each project -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up">
-          <div class="project-box">
-            <img src="./images/hp1.webp" alt="Project 1" >
-            <div class="project-overlay">
-              <h5>House Building</h5>
-              <p>Buildings, Housing</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add more images as below -->
-        <div class="col-lg-6 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp2.avif" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-
-        
-        <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp2.jpg" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-  <!-- Repeat this col for each project -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up">
-          <div class="project-box">
-            <img src="./images/hp4.jpg" alt="Project 1">
-            <div class="project-overlay">
-              <h5>House Building</h5>
-              <p>Buildings, Housing</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp5.webp" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-
-        
-        <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp8.webp" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
-          <!-- Add more images as below -->
-        <div class="col-lg-3 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-box">
-            <img src="./images/hp7.webp" alt="Project 2">
-            <div class="project-overlay">
-              <h5>Skyscraper</h5>
-              <p>Urban Development</p>
-            </div>
-          </div>
-        </div>
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-up">
+      <div class="s-box text-start">
+        <img src="./images/hi6.png" alt="">
+         <h5>General construction</h5>
+          <p>Quisque placerat vitae lacus ut scelerisque.<br> Fusce luctus odio ac nibh luctus consulting.</p>
+         <div class="s-line"></div>
       </div>
     </div>
-  </section>
-<!-- --------------------------------------blog--------------------------------------------- -->
- <section class="blog-section py-5">
-  <div class="container text-center">
-    <img src="./images/topi.webp" alt="" style="margin-bottom: 20px;">
-    <p class="text-uppercase fw-semibold text-muted mb-1" data-aos="fade-up">News & Updates</p>
-    <h1 class="fw-bold mb-5" data-aos="fade-up" data-aos-delay="100" style="font-family: serif;">Latest From~<span style="color: #ffba00;">Our Blog</span></h1>
-    
-    <div class="row g-4">
-      <!-- Blog 1 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="blog-card">
-          <div class="position-relative">
-            <img src="./images/hblog1.jpg" alt="Blog 1" class="img-fluid w-100">
-            <div class="author-name text-white position-absolute top-0 start-0 m-2 d-flex align-items-center">
-            
-              <span class="fw-bold">Henry Hunter</span>
-            </div>
-            <div class="date-tag text-black fw-semibold position-absolute bottom-0 end-0 px-3 py-2">
-              10 AUG 2020
-            </div>
-          </div>
-          <div class="text-start mt-3 px-2">
-            <p class="text-warning fw-semibold text-uppercase small">Electricity</p>
-            <h5 class="fw-bold">Creating quality urban lifestyles, building stronger.</h5>
-           <a href="blog.html" class="btn btn1" style="border-radius: 0%;padding: 7px;padding-left: 15px;padding-right: 15px;">Read More</a>
-          </div>
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-up">
+      <div class="s-box text-start">
+        <img src="./images/hi2.png" alt="">
+         <h5>General construction</h5>
+          <p>Quisque placerat vitae lacus ut scelerisque.<br> Fusce luctus odio ac nibh luctus consulting.</p>
+         <div class="s-line"></div>
+      </div>
+    </div>
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-up">
+      <div class="s-box text-start">
+        <img src="./images/hi3.png" alt="">
+         <h5>General construction</h5>
+         <p>Quisque placerat vitae lacus ut scelerisque.<br> Fusce luctus odio ac nibh luctus consulting.</p>
+         <div class="s-line"></div>
+      </div>
+    </div>
+      <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-up">
+      <div class="s-box text-start">
+        <img src="./images/hi4.png" alt="">
+         <h5>General construction</h5>
+       <p>Quisque placerat vitae lacus ut scelerisque.<br> Fusce luctus odio ac nibh luctus consulting.</p>
+         <div class="s-line"></div>
+      </div>
+    </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="s-box text-start">
+        <img src="./images/hi5.png" alt="" data-aos="flip-up">
+         <h5>General construction</h5>
+ <p>Quisque placerat vitae lacus ut scelerisque.<br> Fusce luctus odio ac nibh luctus consulting.</p>
+          <div class="s-line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+ </section>
+
+
+ <!-- ========== COUNTER SECTION START ========== -->
+<section class="counter-section text-white py-5" style="background: url('./images/homenumber1.jpg') center center/cover no-repeat;">
+  <div class="overlay"></div>
+  <div class="container position-relative">
+    <div class="row text-center">
+      <!-- Counter 1 -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+        <div class="counter-box p-4">
+          <h2 class="counter-number">1224</h2>
+          <p class="counter-label">Cases Completed</p>
         </div>
       </div>
 
-      <!-- Blog 2 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="blog-card">
-          <div class="position-relative">
-            <img src="./images/hblog2.jpg" alt="Blog 2" class="img-fluid w-100">
-            <div class="author-name text-white position-absolute top-0 start-0 m-2 d-flex align-items-center">
-            
-              <span class="fw-bold">Oscar Weston</span>
-            </div>
-            <div class="date-tag bg-warning text-black fw-semibold position-absolute bottom-0 end-0 px-3 py-2">
-              10 AUG 2020
-            </div>
-          </div>
-          <div class="text-start mt-3 px-2">
-            <p class="text-warning fw-semibold text-uppercase small">Construction</p>
-            <h5 class="fw-bold">We’ll nail your next project, because nobody wants!</h5>
-             <a href="blog.html" class="btn btn1" style="border-radius: 0%;padding: 7px;padding-left: 15px;padding-right: 15px;">Read More</a>
-          </div>
+      <!-- Counter 2 -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+        <div class="counter-box p-4">
+          <h2 class="counter-number">32</h2>
+          <p class="counter-label">Team Member</p>
         </div>
       </div>
 
-      <!-- Blog 3 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-        <div class="blog-card">
-          <div class="position-relative">
-            <img src="./images/hblog3.jpg" alt="Blog 3" class="img-fluid w-100">
-            <div class="author-name text-white position-absolute top-0 start-0 m-2 d-flex align-items-center">
-             
-              <span class="fw-bold">Rubin Santro</span>
-            </div>
-            <div class="date-tag bg-warning text-black fw-semibold position-absolute bottom-0 end-0 px-3 py-2">
-              10 AUG 2020
-            </div>
-          </div>
-          <div class="text-start mt-3 px-2">
-            <p class="text-warning fw-semibold text-uppercase small">Renovation</p>
-            <h5 class="fw-bold">Helping you and your house become better.</h5>
-            <a href="blog.html" class="btn btn1" style="border-radius: 0%;padding: 7px;padding-left: 15px;padding-right: 15px;">Read More</a>
-          </div>
+      <!-- Counter 3 -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
+        <div class="counter-box p-4">
+          <h2 class="counter-number">15</h2>
+          <p class="counter-label">Years Experience</p>
+        </div>
+      </div>
+
+      <!-- Counter 4 -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="counter-box p-4">
+          <h2 class="counter-number">1475</h2>
+          <p class="counter-label">Satisfied Customers</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- ========== COUNTER SECTION END ========== -->
+
+<!-- ------------------------------------------------------------------ -->
+
+<!-- ========== SECTION START ========== -->
+<section class="projects-section d-flex">
+  <div class="container-fluid g-0">
+    <div class="row g-0">
+      <!-- Left Image with Overlay -->
+      <div
+        class="col-lg-7 overlay-img-container"
+        data-aos="fade-right"
+        data-aos-duration="900"
+      >
+        <div class="projects-img"></div>
+        <div class="overlay-hover"></div>
+      </div>
+
+      <!-- Right Content -->
+      <div
+        class="col-lg-5 d-flex align-items-center"
+        data-aos="fade-left"
+        data-aos-duration="900"
+      >
+        <div class="projects-content">
+          <div class="section-label-wrap">
+            <span class="section-label">Projects</span>
+          </div>
+
+          <h2 class="projects-title">
+            Super prime high end small <br class="d-none d-lg-block" />
+            projects developments
+          </h2>
+
+          <p class="projects-lead">
+            We denounce with righteous indignation and dislike men who are so
+            beguiled and demoralized by the charms.
+          </p>
+
+          <ul class="feature-list list-unstyled mb-4">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Morbi in sem quis dui placerat ornare. Pellentesque odio nisi,
+              euismod in, pharetra a, ultricies in, diam. Sed arcu.
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              Praesent dapibus, neque id cursus faucibus, tortor neque egestas
+              augue, eu vulputate magna eros eu erat.
+            </li>
+            <li class="mb-0">
+              <i class="fa-solid fa-check"></i>
+              Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec
+              consectetuer ligula vulputate sem tristique cursus.
+            </li>
+          </ul>
+
+          <button class="btn btn4 rounded-0" type="button">
+            View Projects
+          </button>
+        </div>
+      </div>
+    </div>
+     <div class="row g-0" style="margin-top: 50px;">
+      
+      <!-- Left Content -->
+      <div class="col-lg-5 d-flex align-items-center" data-aos="fade-right">
+        <div class="p-5">
+          <!-- Label -->
+          <div class="section-label-wrap mb-3 d-flex align-items-center gap-2">
+            <div class="line"></div>
+            <span class="section-label">WHY CHOOSE US</span>
+          </div>
+
+          <!-- Heading -->
+          <h2 class="fw-bold mb-3 display-5">A right choice that makes<br> the difference to others</h2>
+
+          <!-- Paragraph -->
+          <p class="text-muted mb-4">
+            We donec pulvinar magna id leoersi pellentesque impered upon dignissim rhoncus euismod euismod eros vitae.
+          </p>
+
+          <!-- Progress Bars -->
+          <div class="mb-4">
+            <label class="fw-semibold">Builders <span class="float-end">95%</span></label>
+            <div class="progress">
+              <div class="progress-bar striped-bg" style="width: 95%"></div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="fw-semibold">Construction <span class="float-end">90%</span></label>
+            <div class="progress">
+              <div class="progress-bar striped-bg" style="width: 90%"></div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="fw-semibold">House Renovation <span class="float-end">85%</span></label>
+            <div class="progress">
+              <div class="progress-bar striped-bg" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div>
+            <label class="fw-semibold">Painting <span class="float-end">85%</span></label>
+            <div class="progress">
+              <div class="progress-bar striped-bg" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="why-img h-100 w-100"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ========== SECTION END ========== -->
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+<section class="testimonial-section">
+  <div class="container">
+    <h5 data-aos="fade-up">Testimonials</h5>
+    <h2 data-aos="fade-up" data-aos-delay="100">Customers reviews</h2>
+    <div class="underline" data-aos="fade-up" data-aos-delay="200"></div>
+
+    <div class="row mt-5">
+      <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="testimonial-card">
+          <img src="https://img.freepik.com/free-photo/smiling-young-male-engineer-wearing-safety-helmet-uniform-holding-note-pad-pencil-looking-camera-pointing-side-isolated-white-background_141793-132986.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="Jessica Alba">
+          <p>
+            Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
+          </p>
+          <h6>Jessica Alba</h6>
+          <span>Manager</span>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="testimonial-card">
+          <img src="https://img.freepik.com/premium-photo/woman-engineer-architect-with-construction-drawing-rolled-up-blueprint-helmet-protective-vest-looking-camera-white-studio-background-construction-architecture-engineering-concept_116407-26174.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="Megan Fox">
+          <p>
+            Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
+          </p>
+          <h6>Megan Fox</h6>
+          <span>Senior CEO</span>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+        <div class="testimonial-card">
+          <img src="https://img.freepik.com/premium-photo/young-handsome-asian-tunnel-engineering-wearing-high-visibility-jacket_36367-1152.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="Angelina Jolie">
+          <p>
+            Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
+          </p>
+          <h6>Angelina Jolie</h6>
+          <span>Envato Advisor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- --------------------------------------blog----------------------- -->
+ <section class="news-section">
+  <div class="container">
+    <!-- Title Row -->
+    <div class="row justify-content-between align-items-center section-title">
+      <div class="col-md-6" data-aos="fade-right">
+        <h5>Latest News</h5>
+        <h2>Read latest updates</h2>
+      </div>
+      <div class="col-md-3 text-md-end" data-aos="fade-left">
+        <a href="blog-2.html" class="btn btn1 px-4 py-2" style="color: #000;border-radius: 0%;">View Updates</a>
+      </div>
+    </div>
+
+    <!-- Cards Row -->
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card news-card h-100">
+          <img src="https://img.freepik.com/free-photo/image-engineering-objects-workplace-top-view-construction-concept-engineering-tools-vintage-tone-retro-filter-effect-soft-focus-selective-focus_1418-474.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="card-img-top" alt="news1">
+          <div class="card-body">
+            <div class="news-meta">
+              <i class="bi bi-calendar3"></i> 26 April 2022 &nbsp; 
+              <i class="bi bi-person-circle"></i> Admin
+            </div>
+            <h5>Construction executive holds a very special place</h5>
+            <p>The brand has responded by partnering with skincare experts on social and web...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card news-card h-100">
+          <img src="https://img.freepik.com/free-photo/construction-worker-engineer-working-together-construction-site_640221-165.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="card-img-top" alt="news2">
+          <div class="card-body">
+            <div class="news-meta">
+              <i class="bi bi-calendar3"></i> 26 April 2022 &nbsp; 
+              <i class="bi bi-person-circle"></i> Admin
+            </div>
+            <h5>This is another massive sites with a ton of information</h5>
+            <p>The brand has responded by partnering with skincare experts on social and web...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card news-card h-100">
+          <img src="https://img.freepik.com/free-photo/image-engineering-objects-workplace-top-view-construction-concept-engineering-tools-vintage-tone-retro-filter-effect-soft-focus-selective-focus_1418-704.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="card-img-top" alt="news3">
+          <div class="card-body">
+            <div class="news-meta">
+              <i class="bi bi-calendar3"></i> 26 April 2022 &nbsp; 
+              <i class="bi bi-person-circle"></i> Admin
+            </div>
+            <h5>The construction business the owner site is jam-packed</h5>
+            <p>The brand has responded by partnering with skincare experts on social and web...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dot Indicator -->
+    <div class="news-dots" data-aos="zoom-in">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
 <section class="contact-section">
   <div class="container">
-    <div class="row g-0 align-items-start">
-      <!-- Left Form Column -->
-      <div class="col-lg-8">
-        <div class="contact-box" data-aos="fade-up" style="justify-content: start;">
-          <span class="text-uppercase text-warning fw-bold">LETS TALK</span>
-          <h2 class="mb-4">Have an upcoming project?</h2>
-          <form>
-            <div class="row">
-              <div class="col-md-6">
-                <input type="text" placeholder="Name">
-              </div>
-              <div class="col-md-6">
-                <input type="email" placeholder="E-Mail">
-              </div>
-              <div class="col-md-6">
-                <input type="text" placeholder="Phone Number">
-              </div>
-              <div class="col-md-6">
-                <input type="text" placeholder="Your Website">
-              </div>
-              <div class="col-12">
-                <textarea rows="4" placeholder="Your Message Here"></textarea>
-              </div>
-              <div class="col-12 mt-2">
-                <button type="submit" class="submit-btn">SUBMIT NOW</button>
-              </div>
-            </div>
-          </form>
-        </div>
+    <div class="row g-4 align-items-center">
+      
+      <!-- Map -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.836554643198!2d90.42658077530022!3d23.789132087131956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c796b1ac65ed%3A0xfa377ab21d6b6a76!2sRSTHEME!5e0!3m2!1sen!2sbd!4v1718271419331!5m2!1sen!2sbd" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
-      <!-- Right Info + Image Column -->
-      <div class="col-lg-4">
-        <div class="p-4">
-          <div class="info-card" data-aos="fade-left">
-           <img src="https://devsdesign.net/products/html/konstruk/assets/images/contact/style1/icons/1.png" alt="" style="width: 50px;height: 50px;">
-            <div>
-              <h6 class="fw-bold mb-1">USA office</h6>
-              <p class="mb-0">55 Gerad Lane,<br>NY 11201, USA</p>
+      <!-- Form -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <h5>Contact Us</h5>
+        
+        <h2 class="mb-4" style="font-family: serif;">Have an upcoming project on going?</h2>
+            <div class="underline" data-aos="fade-up" data-aos-delay="200"></div>
+        <form>
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="col-md-6">
+              <input type="email" class="form-control" placeholder="E-Mail">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Phone Number">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Your Website">
+            </div>
+            <div class="col-12">
+              <textarea rows="4" class="form-control" placeholder="Your Message Here"></textarea>
             </div>
           </div>
-          <div class="info-card" data-aos="fade-left" data-aos-delay="100">
-         <img src="https://devsdesign.net/products/html/konstruk/assets/images/contact/style1/icons/2.png" alt="" style="width: 50px;height: 50px;">
-            <div>
-              <h6 class="fw-bold mb-1">Email us</h6>
-              <p class="mb-0">test@gamil.com<br>test2@gamil.com</p>
-            </div>
-          </div>
-          <div class="info-card" data-aos="fade-left" data-aos-delay="200">
-           <img src="https://devsdesign.net/products/html/konstruk/assets/images/contact/style1/icons/3.png" alt="" style="width: 50px;height: 50px;">
-            <div>
-              <h6 class="fw-bold mb-1">Call us</h6>
-              <p class="mb-0">(+088) 589-8745<br>(+088) 222-9999</p>
-            </div>
-          </div>
-        </div>
-        <div class="contact-right d-lg-block d-none"></div>
+          <button type="submit" class="submit-btn">Submit Now</button>
+        </form>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- -----------------------------------------------last---------------------------- -->
- <!-- LAST SECTION START -->
-<section class="project-callout text-center text-white d-flex align-items-center" id="project" data-aos="zoom-in">
+<!-- --------------------------------------------------------------------------- -->
+<section class="logo-section">
   <div class="container">
-    <p class="small-text text-warning mb-2">
- <img src="./images/topi.webp" alt="" style="height: 30px;width: 30px;object-fit: cover;">  WORK WITH US !
-    </p>
-    <h2 class="display-5 fw-bold">Have any upcoming project</h2>
-    <p class="mt-3 mb-4">
-      Leverage agile frameworks to provide a robust synopsis for high level overviews.<br>
-      Iterative approaches to corporate strategy foster collaborative thinking.
-    </p>
-    <a href="contact.html" class="btn btn-warning px-4 py-2 fw-semibold text-white" style="border-radius: 0%;">GET-STARTED</a>
-  </div>
-</section>
-<!-- LAST SECTION END -->
-
-
-<!-- ------------------------------------------------------------------------------------------------------- -->
-<section class="py-5">
-  <div class="container">
-    <div class="row g-4">
-      <!-- Testimonials -->
-      <div class="col-lg-6" data-aos="fade-up">
-        <div class="section-title mb-2">
-          <i class="fas fa-ellipsis-h text-warning"></i> TESTIMONIALS
-        </div>
-        <h2 class="mb-4">Our clients reviews.</h2>
-        <div class="swiper testimonial-swiper">
-          <div class="swiper-wrapper">
-            <!-- Slide -->
-            <div class="swiper-slide testimonial-box">
-              <div class="quote-icon">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <h1>Our best number 1 testimonials</h1>
-              <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-                <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-              <div class="d-flex align-items-center mt-4 profile-info">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-                <div class="ms-3">
-                  <strong>Angel Puspa</strong><br>
-                  <small>CEO, Brick Consulting</small>
-                </div>
-              </div>
-            </div>
-          <div class="swiper-slide testimonial-box">
-              <div class="quote-icon">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-                <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-              <div class="d-flex align-items-center mt-4 profile-info">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-                <div class="ms-3">
-                  <strong>Angel Puspa</strong><br>
-                  <small>CEO, Brick Consulting</small>
-                </div>
-              </div>
-            </div><div class="swiper-slide testimonial-box">
-              <div class="quote-icon">
-                <i class="fas fa-quote-left"></i>
-              </div>
-              <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-                <p class="testimonial-text">
-                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway.
-              </p>
-              <div class="d-flex align-items-center mt-4 profile-info">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
-                <div class="ms-3">
-                  <strong>Angel Puspa</strong><br>
-                  <small>CEO, Brick Consulting</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="nav-arrows mt-3">
-            <button class="btn swiper-button-prev-testi"><i class="fas fa-arrow-left"></i></button>
-            <button class="btn swiper-button-next-testi"><i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
+    <div class="row justify-content-center align-items-center text-center">
+      <div class="col-6 col-sm-4 col-md-2 logo-box">
+        <img src="./images/Logo1 (1).png" alt="Logo 1">
       </div>
-
-      <!-- Team Members -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="section-title mb-2">
-          <i class="fas fa-ellipsis-h text-warning"></i> TEAM MEMBERS
-        </div>
-        <h2 class="mb-4">Expert team members.</h2>
-        <div class="swiper team-swiper">
-          <div class="swiper-wrapper">
-            <!-- Slide -->
-            <div class="swiper-slide team-box text-center">
-              <img src="https://img.freepik.com/free-photo/smiling-young-male-engineer-wearing-uniform-holding-safety-helmet-looking-camera-showing-thumb-up-isolated-white-background_141793-133146.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="img-fluid rounded mb-3" alt="" style="height: 300px;width: 100%;">
-              <h6>Shahinur Islam</h6>
-              <small>Construction Worker</small>
-            </div>
-             <!-- Slide -->
-            <div class="swiper-slide team-box text-center">
-               <img src="https://img.freepik.com/free-photo/indian-man-working-male-yellow-vest-man-with-mobile-phone_1157-47551.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="img-fluid rounded mb-3" alt="" style="height: 300px;width: 100%;object-fit: cover;">
-              <h6>Shahinur Islam</h6>
-              <small>Construction Worker</small>
-            </div> <!-- Slide -->
-            <div class="swiper-slide team-box text-center">
-             <img src="https://img.freepik.com/premium-photo/young-handsome-asian-tunnel-engineering-wearing-high-visibility-jacket_36367-1151.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" class="img-fluid rounded mb-3" alt="" style="height: 300px;width: 100%;object-fit: cover;">
-              <h6>Shahinur Islam</h6>
-              <small>Construction Worker</small>
-            </div>
-          </div>
-
-          <!-- <div class="thumbs d-flex gap-2 mt-3">
-            <img src="https://img.freepik.com/free-photo/smiling-young-male-engineer-wearing-uniform-holding-safety-helmet-looking-camera-showing-thumb-up-isolated-white-background_141793-133146.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="">
-            <img src="https://img.freepik.com/free-photo/indian-man-working-male-yellow-vest-man-with-mobile-phone_1157-47551.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="">
-            <img src="https://img.freepik.com/premium-photo/young-handsome-asian-tunnel-engineering-wearing-high-visibility-jacket_36367-1151.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740" alt="">
-          </div> -->
-
-          <div class="nav-arrows mt-3">
-            <button class="btn swiper-button-prev-team"><i class="fas fa-arrow-left"></i></button>
-            <button class="btn swiper-button-next-team"><i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
+      <div class="col-6 col-sm-4 col-md-2 logo-box">
+        <img src="./images/Logo2 (1).png" alt="Logo 2">
       </div>
-    </div>
-
-    <!-- Logos -->
-    <div class="row text-center mt-5 company-logos" >
-      <div class="col-2"><img src="./images/logo1.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo2.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo3.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo4.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo5.png" class="img-fluid" alt=""></div>
-      <div class="col-2"><img src="./images/logo1.png" class="img-fluid" alt=""></div>
+      <div class="col-6 col-sm-4 col-md-2 logo-box">
+        <img src="./images/Logo3 (1).png" alt="Logo 3">
+      </div>
+      <div class="col-6 col-sm-4 col-md-2 logo-box">
+        <img src="./images/Logo4 (1).png" alt="Logo 4">
+      </div>
+      <div class="col-6 col-sm-4 col-md-2 logo-box">
+        <img src="./images/Logo5 (1).png" alt="Logo 5">
+      </div>
+      <div class="col-6 col-sm-4 col-md-2 logo-box">
+        <img src="./images/Logo2 (1).png" alt="Logo 6">
+      </div>
     </div>
   </div>
 </section>
-
-
-
 <footer class="footer-section text-white pt-5 pb-3 position-relative">
   <div class="black-overlay"></div>
 
@@ -733,34 +1367,6 @@
     </div>
   </div>
 </footer>
-
-
-
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-
-  new Swiper('.testimonial-swiper', {
-    slidesPerView: 1,
-    navigation: {
-      nextEl: '.swiper-button-next-testi',
-      prevEl: '.swiper-button-prev-testi',
-    },
-  });
-
-  new Swiper('.team-swiper', {
-    slidesPerView: 1,
-    navigation: {
-      nextEl: '.swiper-button-next-team',
-      prevEl: '.swiper-button-prev-team',
-    },
-  });
-</script>
-
   <script>
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.getElementById("menu");
@@ -821,5 +1427,4 @@ dropdownToggles.forEach(toggle => {
 </body>
 
 </html>
-
 
