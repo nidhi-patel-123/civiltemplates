@@ -450,7 +450,7 @@ height: 180%;
 
     /* ------------------------------Hero section styles -------------------------------*/
   .hero {
-  background: url('../images/hero.jpg') no-repeat center center/cover;
+  background: url('https://img.freepik.com/premium-photo/structural-engineer-foreman-worker-with-blueprints-discuss-inspecting-outdoors-building_38335-613.jpg?uid=R195395238&ga=GA1.1.1975205788.1747372593&semt=ais_hybrid&w=740') no-repeat center center/cover;
   height: 50vh;
   position: relative;
   display: flex;
