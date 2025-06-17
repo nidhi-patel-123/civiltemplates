@@ -144,7 +144,6 @@
       background: #ffec96;
       color: #051829 !important;
     }
-
 .btn{
   border: 1px solid #ffba00;
   background: none;
@@ -157,57 +156,46 @@ transition: 0.8s;
 position: relative;
 overflow: hidden;
 }
-.btn1{
-  color:rgb(0, 0, 0);
-
-}
-.btn1:hover{
-  color:rgb(0, 0, 0);
-
-}
-
-.btn::before{
+.btn1::before {
   content: "";
   position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  width: 120%;
+  height: 100%;
+  background-color: #ffba00;
+  color: white;
+  border-radius: 0 0 100% 100%;
+  z-index: -1;
+  transition: transform 0.5s ease;
+}
+
+.btn1:hover::before {
+  transform: translateX(-50%) scaleY(1.5);
+  color: white;
+}
+
+
+.btn4::before {
+  content: "";
+  position: absolute;
+  top: 50%;
   left: 0;
   width: 100%;
   height: 0%;
   background-color: #ffba00;
-  color: #000;
+  color: white;
   z-index: -1;
-  transition: 0.8s;
+  transition: height 0.4s ease, top 0.4s ease;
 }
 
-.btn1::before{
+.btn4:hover::before {
   top: 0;
-  border-radius: 0 0 50% 50%;
-
+  height: 100%;
+  color: white;
 }
 
-.btn1:hover::before{
-height: 180%;
-}
-
-
-.btn4{
-  color: #030303;
-}
-
-.btn4:hover{
-  color: black;
-  background-color: #fff;
-}
-
-.btn4::before{
-  bottom: 0;
-  border-radius: 50% 50% 0 0;
-  height: 180%;
-}
-
-
-.btn4:hover::before{
-  height: 0%;
-}
     /* Hamburger menu toggle */
     .menu-toggle {
       display: none;
@@ -509,23 +497,7 @@ height: 180%;
   gap: 15px;
 }
 
-.btn1,
-.btn4 {
-  font-family: serif;
-  font-weight: bolder;
-  color: #000;
-  background: transparent;
-  /* border: 2px solid #000; */
-  padding: 10px 20px;
-  transition: all 0.3s ease-in-out;
-}
 
-.btn1:hover,
-.btn4:hover {
-  background: #ffba00;
-  color: #fff;
-  border-color: #ffba00;
-}
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -643,7 +615,7 @@ height: 180%;
         </ul>
       </nav>
 
-      <a href="contact.html"><button class="btn btn1">Get In Touch →</button></a>
+      <a href="contact.html"><button class="btn btn4">Get In Touch →</button></a>
     </div>
   </header>
 <!-- ---------------------------hero------------------------ -->
@@ -756,7 +728,7 @@ height: 180%;
         <div class="highlight">Let's Work Together</div>
         <h2 class="section-title">One of the world’s most<br>famous construction</h2>
         <p class="mb-4">Pro ne mutat velit impedit, sit mediocrem iudicabit definiebas an, amet mauris tellus inquando sensibus contentiones mea.</p>
-        <a href="contact.html" class="btn btn1" style="border-radius: 0%;">DISCOVER-MORE</a>
+        <a href="contact.html" class="btn btn4" style="border-radius: 0%;">DISCOVER-MORE</a>
       </div>
     </div>
   </div>
@@ -773,7 +745,7 @@ height: 180%;
           Pro ne mutat velit impedit, sit mediocrem iudicabit definiebas mauris commodo quis tellus inquando sensibus contentiones mea. 
           Mauris eget ligula hendrerit ati quis vulputate volutpat.
         </p>
-            <a href="contact.html" class="btn btn1" style="border-radius: 0%;">DISCOVER-MORE</a>
+            <a href="contact.html" class="btn btn4" style="border-radius: 0%;">DISCOVER-MORE</a>
       </div>
 
       <!-- Right Image & Boxes -->
@@ -806,7 +778,7 @@ height: 180%;
           <div class="card-body text-center">
             <h5>Home Maintenance</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-           <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
+           <a href="service.html"> <button class="btn btn4 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
           </div>
         </div>
       </div>
@@ -818,7 +790,7 @@ height: 180%;
           <div class="card-body text-center">
             <h5>Architecture</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-           <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
+           <a href="service.html"> <button class="btn btn4 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
           </div>
         </div>
       </div>
@@ -830,7 +802,7 @@ height: 180%;
           <div class="card-body text-center">
             <h5>Projection View</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-        <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
+        <a href="service.html"> <button class="btn btn4 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
           </div>
         </div>
       </div>
@@ -842,7 +814,7 @@ height: 180%;
           <div class="card-body text-center">
             <h5>Construction Works</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing elit.</p>
-       <a href="service.html"> <button class="btn btn1 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
+       <a href="service.html"> <button class="btn btn4 mt-2" style="border-radius: 0%;border: none;">SERVICE DETAILS</button></a>
           </div>
         </div>
       </div>

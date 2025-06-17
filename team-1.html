@@ -20,6 +20,80 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/contact.css">
 <link rel="stylesheet" href="css/team.css">
+<style>
+  /* Common Button Style */
+.btn {
+  border: 1px solid #ffba00;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: monospace;
+  cursor: pointer;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 1;
+}
+
+/* ========================================= */
+/* .btn1 – Left-to-Right Arc Fill on Hover   */
+/* ========================================= */
+.btn1 {
+  color: black;
+}
+
+.btn1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffba00;
+  border-radius: 0 50% 50% 0;
+  z-index: -1;
+  transition: left 0.5s ease;
+}
+
+.btn1:hover::before {
+  left: 0;
+}
+
+.btn1:hover {
+  color: black;
+}
+
+/* ========================================= */
+/* .btn4 – Diagonal Fill from Bottom-Right   */
+/* ========================================= */
+.btn4 {
+  color: black;
+}
+
+.btn4::before {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  right: -100%;
+  width: 200%;
+  height: 200%;
+  background-color: #ffba00;
+  transform: rotate(-45deg);
+  z-index: -1;
+  transition: bottom 0.6s ease, right 0.6s ease;
+}
+
+.btn4:hover::before {
+  bottom: 0;
+  right: 0;
+}
+
+.btn4:hover {
+  color: black;
+}
+
+</style>
 </head>
 <body>
 
@@ -92,7 +166,7 @@
         </ul>
       </nav>
 
-      <a href="contact.html"><button class="btn btn1">Get In Touch →</button></a>
+      <a href="contact.html"><button class="btn btn4">Get In Touch →</button></a>
     </div>
   </header>
 <!-- ---------------------------hero------------------------ -->
