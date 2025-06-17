@@ -468,14 +468,6 @@ body{
       gap: 0;
     }
 
-    .nav-arrows .btn {
-      /* background-color: #ffba00; */
-      border: none;
-      border-radius: 0;
-      width: 45px;
-      height: 45px;
-      color: #000;
-    }
 
     .thumbs img {
       width: 70px;
